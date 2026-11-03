@@ -24,6 +24,8 @@ import {
   Sparkles,
   Compass,
   MessageSquare,
+  Sun,
+  Moon,
 } from "lucide-react";
 import {
   aiCatalogUrl,
@@ -64,6 +66,11 @@ function App() {
   const reduced = useRef(
     window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   ).current;
+  const [hour, setHour] = useState(10);
+  const [monasView, setMonasView] = useState(0);
+  const [skyView, setSkyView] = useState<{ id: number; hour: number } | null>(
+    null,
+  );
   const [station, setStation] = useState(0),
     [lobbyView, setLobbyView] = useState<LobbyViewpointId>("wide"),
     [greetingOpen, setGreetingOpen] = useState(false),
@@ -457,6 +464,9 @@ function App() {
         <SceneBoundary onError={sceneError}>
           <Suspense fallback={null}>
             <Scene
+              hour={hour}
+              monasView={monasView}
+              skyView={skyView}
               paused={busy}
               station={station}
               lobbyView={lobbyView}
@@ -527,6 +537,46 @@ function App() {
           <Grid2X2 size={18} />
         </button>
       </header>
+      <div
+        className="time-control paper"
+        onWheel={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchEnd={(e) => e.stopPropagation()}
+      >
+        <Sun size={15} aria-hidden="true" />
+        <input
+          aria-label="Waktu lingkungan"
+          type="range"
+          min="6"
+          max="22"
+          step="0.25"
+          value={hour}
+          onChange={(e) => setHour(Number(e.target.value))}
+          aria-valuetext={
+            (hour < 11
+              ? "Pagi"
+              : hour < 16
+                ? "Siang"
+                : hour < 19
+                  ? "Senja"
+                  : "Malam") +
+            " " +
+            Math.floor(hour) +
+            ":" +
+            String(Math.round((hour % 1) * 60)).padStart(2, "0")
+          }
+        />
+        <Moon size={13} aria-hidden="true" />
+        <output>
+          {hour < 11
+            ? "Pagi"
+            : hour < 16
+              ? "Siang"
+              : hour < 19
+                ? "Senja"
+                : "Malam"}
+        </output>
+      </div>
 
       <section
         className={`room-info paper ${station === 0 ? "entrance-info" : ""} ${inGuestbookRoom ? "guestbook-panel" : ""}`}
@@ -697,6 +747,22 @@ function App() {
 
       {station === 0 && (
         <div className="city-caption">
+          <div className="view-shortcuts">
+            <button
+              className="monas-look"
+              onClick={() => setMonasView((v) => v + 1)}
+            >
+              Lihat Monas <RotateCcw size={13} />
+            </button>
+            <button
+              className="monas-look"
+              onClick={() =>
+                setSkyView((v) => ({ id: (v?.id ?? 0) + 1, hour }))
+              }
+            >
+              Lihat langit <Sun size={13} />
+            </button>
+          </div>
           <span>06°10′ S &nbsp; 106°49′ E</span>
           <span>TERINSPIRASI JAKARTA</span>
           <small>Lingkungan kota ilustratif</small>
@@ -923,7 +989,7 @@ function App() {
 
       {station > 0 && !inGuestbookRoom && (
         <span className="drag-hint">
-          <Mouse size={13} /> Drag untuk menoleh
+          <Mouse size={13} /> Drag untuk melihat 360°
         </span>
       )}
 

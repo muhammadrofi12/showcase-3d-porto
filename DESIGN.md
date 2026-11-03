@@ -177,9 +177,18 @@ Katalog, detail, dan tentang memakai dialog HTML dengan tombol tutup. Detail men
 
 ### Spatial navigation
 
-Kamera mengikuti titik pandang terarah, tersinkron dengan ruang, caption, dan denah. Tombol perjalanan, wheel, swipe vertikal, dan keyboard pada area pengalaman mengubah titik pandang; drag membatasi pandangan sekitar. Interpolasi kamera memakai `1 - exp(-delta * 3.2)`, dihilangkan pada reduced motion. Animasi dan transisi CSS juga dihentikan pada reduced motion. Render dijeda ketika dialog terbuka atau dokumen tersembunyi.
+Kamera mengikuti titik pandang terarah, tersinkron dengan ruang, caption, dan denah. Tombol perjalanan, wheel, swipe vertikal, dan keyboard pada area pengalaman mengubah titik pandang; drag horizontal memutar arah 360° dan drag vertikal desktop menoleh dengan pitch terbatas. Interpolasi kamera memakai `1 - exp(-delta * 3.2)`, dihilangkan pada reduced motion. Animasi dan transisi CSS juga dihentikan pada reduced motion. Render dijeda ketika dialog terbuka atau dokumen tersembunyi.
 
 ## Do's and Don'ts
+
+### Atmosfer kota
+
+Lingkungan depan museum mencakup taman Monas, aktivitas pejalan kaki, mobil dan motor. Gunakan vegetasi berlapis, material matte, fasad bervariasi, dan skala manusia; pertahankan karakter ilustratif. Monas berada pada sumbu depan museum, dapat dilihat dengan memutar kamera atau tombol Lihat Monas.
+
+Slider waktu memakai panel kertas dengan ikon matahari/bulan dan label Pagi/Siang/Senja/Malam. Panel berada di bawah navigasi desktop dan di kanan atas mobile. Seluruh caption lokasi dan kredit memiliki latar kertas untuk menjaga kontras pada siang dan malam. Drag horizontal tidak dibatasi yaw; pitch tetap dibatasi agar kamera tidak terbalik.
+
+Langit memakai gradasi horizon ke zenit, cakram matahari dan halo, bulan, bintang, serta awan prosedural tipis. Fog mulai pada jarak 38 dan penuh pada 138 unit scene; warna horizon dan fog harus sama. Langit tidak mengikuti fog objek, sehingga benda langit tidak menghilang bersama gedung jauh. Kontrol Lihat langit menyediakan akses cepat ke pandangan langit termasuk pada ponsel. Tidak ada perubahan waktu otomatis atau animasi awan terus-menerus.
+
 
 - **Do** pertahankan overlay Framer, interior netral berskylight, serta konteks Jakarta yang telah dipilih pemilik.
 - **Do** gunakan gambar karya dengan proporsi utuh dan warna asli.

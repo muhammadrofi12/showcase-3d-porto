@@ -1,6 +1,61 @@
 @font-face {
+  /* Local typeface */
   font-family: Inter;
   src: url("/fonts/Inter-Regular.otf");
+}
+.time-control {
+  position: absolute;
+  right: 30px;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  height: 44px;
+  z-index: 4;
+  color: #42483b;
+}
+.time-control input {
+  width: 112px;
+  height: 32px;
+  accent-color: #a34c34;
+  cursor: pointer;
+}
+.time-control output {
+  font-size: 10px;
+  min-width: 35px;
+}
+.monas-look {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  background: #f7f5ee;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+@media (max-width: 600px) {
+  .time-control {
+    top: 74px;
+    right: 16px;
+    height: 40px;
+  }
+  .time-control input {
+    width: 100px;
+  }
+  .room-info,
+  .entrance-info.room-info {
+    top: 130px !important;
+  }
+  .city-caption {
+    bottom: 90px;
+  }
+  .monas-look {
+    padding: 10px;
+    font-size: 10px;
+  }
 }
 * {
   box-sizing: border-box;
@@ -402,6 +457,9 @@ h1 em {
   transform: translate3d(0, 108%, 0);
 }
 .city-caption {
+  background: var(--paper);
+  padding: 12px 14px;
+  border-radius: 2px;
   position: absolute;
   left: 34px;
   bottom: 108px;
@@ -412,6 +470,11 @@ h1 em {
   font-size: 9px;
   letter-spacing: 1.6px;
   color: #343c32;
+}
+.view-shortcuts {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .city-caption small {
   font-size: 9px;
@@ -577,6 +640,9 @@ h1 em {
   display: flex;
 }
 .signature {
+  background: var(--paper);
+  padding: 8px 10px;
+  border-radius: 2px;
   font-size: 9px;
   color: #414a3d;
 }

@@ -26,9 +26,20 @@ Buka URL yang ditampilkan Vite. Untuk build produksi: `npm run build`, lalu `npm
 
 ## Stack dan konten
 
+### Lingkungan dan atmosfer
+
+- Kota prosedural memiliki variasi gedung, ruko, halte, trotoar, pohon, bangku, orang berkumpul/berbincang/telepon/duduk, serta mobil dan motor dengan pengemudi. Kendaraan bergerak di area luar dan berhenti ketika masuk ruang, dialog terbuka, tab tersembunyi, mode ringan, atau reduced motion.
+- Monas berada di seberang bagian depan museum, di belakang arah kamera awal. Tombol **Lihat Monas** memutar pandangan menuju tugu, pelataran bertingkat, taman, jalur pejalan kaki, dan kolam. Bentuk mengambil referensi [Monumen Nasional, Jakarta Tourism](https://enjoy.jakarta.go.id/article/monumen-nasional-monas); komposisi taman disesuaikan untuk galeri, bukan peta Jakarta 1:1.
+- Drag horizontal dapat memutar pandangan 360°. Posisi kamera masih mengikuti titik perjalanan galeri; tidak ada navigasi berjalan bebas ke seluruh kota.
+- Slider **Waktu lingkungan** mengubah suasana pukul 06.00–22.00: pagi, siang, senja, dan malam. Langit, cahaya, kabut, jendela, lampu jalan, dan sorot Monas menyesuaikan. Waktu dipilih manual dan tidak tersimpan setelah reload.
+- Matahari dengan halo, bulan dengan tekstur prosedural, bintang malam, dan awan tipis digambar pada kubah langit. **Lihat langit** mengarahkan kamera ke matahari atau bulan sesuai waktu yang dipilih. Jalur benda langit bersifat artistik, bukan simulasi astronomi.
+- Kabut jarak menyamarkan batas lingkungan; terrain/jalan diteruskan melewati batas kabut agar horizon tidak terpotong. Langit tetap terlihat di atas kabut.
+
+Modul lingkungan: `CityEnvironment.tsx`, `EnvironmentLighting.tsx`, dan `SkyEnvironment.tsx` dalam `src/components/`.
+
 React 19, TypeScript, Vite, Three.js, React Three Fiber, Drei, Lucide, CSS, dan SVG untuk denah. Scene diorganisasikan ke dalam modul `src/Scene.tsx` serta komponen `src/components/Lobby.tsx`, `FloorPlanBoard.tsx`, `ReceptionDesk.tsx`, `CatalogBook.tsx`, `Visitor.tsx`, dan `AiVisualRoom.tsx`.
 
-`src/content.ts` mengatur data ruang (`plaza`, `00`–`04`), penempatan karya, titik kamera, dan koleksi secara terpusat. `src/data/projects.json` dan `src/data/ai-visuals.json` merupakan snapshot portofolio lokal; `public/artworks/` dan `public/ai-visuals/` berisi gambar WebP hasil optimasi (termasuk turunan tekstur rak `*-shelf.webp` dan gambar detail resolusi lebih tinggi). Website dapat dibangun mandiri tanpa repository portofolio asli.
+`src/content.ts` mengatur data ruang (`plaza`, `00`–`05`), penempatan karya, titik kamera, dan koleksi secara terpusat. `src/data/projects.json` dan `src/data/ai-visuals.json` merupakan snapshot portofolio lokal; `public/artworks/` dan `public/ai-visuals/` berisi gambar WebP hasil optimasi (termasuk turunan tekstur rak `*-shelf.webp` dan gambar detail resolusi lebih tinggi). Website dapat dibangun mandiri tanpa repository portofolio asli.
 
 Untuk memperbarui snapshot secara sengaja:
 
@@ -44,6 +55,8 @@ Jalankan dev server pada port 5173, kemudian `node scripts/smoke.mjs`. Skrip mem
 
 Build TypeScript/produksi (`npm run build`) dan smoke test terverifikasi secara lokal. Performa pada perangkat fisik, angka FPS/budget PRD pada berbagai hardware, serta subdomain produksi belum diverifikasi.
 
+`node scripts/check-environment.mjs` memeriksa slider pagi/malam, tombol pandangan Monas/langit, rangkaian drag kamera, perpindahan ke lobby, error WebGL/shader, dan overflow mobile. Screenshot lingkungan, Monas, matahari, serta bulan/bintang tersimpan dalam `output/`; keberadaan dan komposisi visual ditinjau secara manual, bukan dinilai otomatis oleh skrip.
+
 ## Cakupan versi saat ini
 
-Ruang Karya adalah nama kerja. Kota dan karakter memakai geometri prosedural sederhana yang efisien untuk web. Audio, berbagi URL per proyek, bahasa kedua, CMS, chat NPC interaktif, transaksi toko, dan eksplorasi kota bebas belum termasuk implementasi ini.
+Ruang Karya adalah nama kerja. Kota dan karakter memakai geometri prosedural sederhana. Berbagi URL per proyek, bahasa kedua, CMS, chat NPC interaktif, transaksi toko, dan eksplorasi kota bebas belum termasuk implementasi ini.

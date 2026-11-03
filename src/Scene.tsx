@@ -1,3 +1,8 @@
+import EnvironmentLighting, {
+  nightAmount,
+} from "./components/EnvironmentLighting";
+import CityEnvironment from "./components/CityEnvironment";
+import { celestialDirection } from "./components/SkyEnvironment";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, Text as DreiText, useTexture } from "@react-three/drei";
@@ -33,99 +38,6 @@ function Box({
   );
 }
 
-function Tree({ x, z }: { x: number; z: number }) {
-  return (
-    <group position={[x, 0, z]}>
-      <Box position={[0, 1.2, 0]} scale={[0.22, 2.4, 0.22]} color="#675a44" />
-      <mesh position={[0, 3, 0]} castShadow>
-        <icosahedronGeometry args={[1.4, 2]} />
-        <meshStandardMaterial color="#69765c" roughness={1} />
-      </mesh>
-    </group>
-  );
-}
-
-function City() {
-  return (
-    <group>
-      <Box position={[0, -0.36, -24]} scale={[240, 0.5, 240]} color="#b7b8aa" />
-      <Box position={[0, -0.04, 21]} scale={[200, 0.12, 11]} color="#676c68" />
-      <Box
-        position={[-19, -0.04, -26]}
-        scale={[9, 0.12, 130]}
-        color="#676c68"
-      />
-      <Box position={[20, -0.04, -26]} scale={[9, 0.12, 130]} color="#676c68" />
-      {Array.from({ length: 30 }, (_, i) => (
-        <Box
-          key={`road${i}`}
-          position={[-85 + i * 6, 0.03, 21]}
-          scale={[2.8, 0.01, 0.12]}
-          color="#ded9bd"
-        />
-      ))}
-      {Array.from({ length: 8 }, (_, i) => (
-        <Box
-          key={`cross${i}`}
-          position={[-9 + i * 0.85, 0.04, 21]}
-          scale={[0.4, 0.02, 8]}
-          color="#e8e5d9"
-        />
-      ))}
-      <Box position={[0, -0.12, -34]} scale={[27, 0.35, 104]} color="#d3cebd" />
-      {Array.from({ length: 22 }, (_, i) => {
-        const x = i < 11 ? -30 - (i % 3) * 10 : 32 + (i % 3) * 11;
-        const z = -82 + (i % 11) * 14;
-        const h = 10 + ((i * 17) % 33);
-        return (
-          <group key={i}>
-            <Box
-              position={[x, h / 2, z]}
-              scale={[7, h, 8]}
-              color={["#909e9e", "#a7aaa3", "#c4c3b8", "#718787"][i % 4]}
-            />
-            <Box position={[x, h + 0.5, z]} scale={[5, 1, 6]} color="#c1c4bb" />
-            {Array.from({ length: Math.floor(h / 3) }, (_, j) => (
-              <Box
-                key={j}
-                position={[x, j * 3 + 2, z + 4.02]}
-                scale={[6, 0.95, 0.04]}
-                color="#657b7d"
-              />
-            ))}
-          </group>
-        );
-      })}
-      {/* Stylized Jakarta skyline cue, a fictional urban composition. */}
-      <group position={[5, 0, -108]}>
-        <Box position={[0, 2, 0]} scale={[9, 4, 9]} color="#d8d4bf" />
-        <Box position={[0, 15, 0]} scale={[1.5, 24, 1.5]} color="#e6e0cc" />
-        <mesh position={[0, 28, 0]}>
-          <octahedronGeometry args={[1.4]} />
-          <meshStandardMaterial
-            color="#bb8b35"
-            metalness={0.4}
-            roughness={0.4}
-          />
-        </mesh>
-      </group>
-      {[-12, 12].flatMap((x) =>
-        [12, -4, -20, -36, -52, -68, -80].map((z) => (
-          <Tree key={`${x}${z}`} x={x} z={z} />
-        )),
-      )}
-      <group position={[8, 0.35, 22]}>
-        <Box position={[0, 0.4, 0]} scale={[2, 1, 5]} color="#d7ded7" />
-        <Box position={[0, 1, 0]} scale={[1.8, 0.55, 3]} color="#32556a" />
-      </group>
-      <group position={[-9, 0.35, 18]}>
-        <Box position={[0, 0.4, 0]} scale={[1.8, 0.8, 3.6]} color="#ac5e43" />
-        <Box position={[0, 1, 0]} scale={[1.5, 0.5, 2]} color="#556c72" />
-      </group>
-    </group>
-  );
-}
-
 function Building() {
   return (
     <group>
@@ -144,11 +56,7 @@ function Building() {
         />
       ))}
       {/* Left, Right, and Back structural walls */}
-      <Box
-        position={[-7, 3.5, -37.5]}
-        scale={[0.35, 7, 89]}
-        color="#e5dfd1"
-      />
+      <Box position={[-7, 3.5, -37.5]} scale={[0.35, 7, 89]} color="#e5dfd1" />
       <Box position={[7, 3.5, -37.5]} scale={[0.35, 7, 89]} color="#e5dfd1" />
       <Box position={[0, 3.5, -82]} scale={[14, 7, 0.35]} color="#ded8ca" />
 
@@ -241,9 +149,21 @@ function Building() {
           ))}
           <Box position={[0, 6, z]} scale={[7, 2, 0.25]} color="#ded7c9" />
           {/* Warm wooden portal arch trim matching Lobby portal */}
-          <Box position={[-3.35, 2.5, z]} scale={[0.12, 5, 0.3]} color="#7d5c3f" />
-          <Box position={[3.35, 2.5, z]} scale={[0.12, 5, 0.3]} color="#7d5c3f" />
-          <Box position={[0, 5.02, z]} scale={[6.82, 0.12, 0.3]} color="#7d5c3f" />
+          <Box
+            position={[-3.35, 2.5, z]}
+            scale={[0.12, 5, 0.3]}
+            color="#7d5c3f"
+          />
+          <Box
+            position={[3.35, 2.5, z]}
+            scale={[0.12, 5, 0.3]}
+            color="#7d5c3f"
+          />
+          <Box
+            position={[0, 5.02, z]}
+            scale={[6.82, 0.12, 0.3]}
+            color="#7d5c3f"
+          />
           <Text
             position={[0, 6.12, z + 0.15]}
             fontSize={0.22}
@@ -440,8 +360,14 @@ function Rig({
     const l = new THREE.Vector3(...current.look);
     const offset = l.clone().sub(p);
     offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), drag.x);
+    const direction = new THREE.Spherical().setFromVector3(offset);
+    direction.phi = THREE.MathUtils.clamp(
+      direction.phi + drag.y,
+      0.18,
+      Math.PI - 0.18,
+    );
+    offset.setFromSpherical(direction);
     l.copy(p).add(offset);
-    l.y += drag.y;
     const a = reduced ? 1 : 1 - Math.exp(-delta * 2.8);
     camera.position.lerp(p, a);
     look.current.lerp(l, a);
@@ -457,6 +383,9 @@ function Ready({ onReady }: { onReady: () => void }) {
 
 export default function Scene({
   station,
+  hour,
+  monasView,
+  skyView,
   lobbyView,
   snapCount = 0,
   greetingOpen,
@@ -472,6 +401,9 @@ export default function Scene({
   paused,
 }: {
   station: number;
+  hour: number;
+  monasView: number;
+  skyView: { id: number; hour: number } | null;
   lobbyView: LobbyViewpointId;
   snapCount?: number;
   greetingOpen: boolean;
@@ -499,6 +431,31 @@ export default function Scene({
 
   useEffect(() => setDrag({ x: 0, y: 0 }), [station, lobbyView]);
 
+  useEffect(() => {
+    if (!monasView || station !== 0) return;
+    const p = new THREE.Vector3(...stations[0].position);
+    const original = new THREE.Vector3(...stations[0].look).sub(p);
+    const target = new THREE.Vector3(0, 18, 88).sub(p);
+    setDrag({
+      x: Math.atan2(target.x, target.z) - Math.atan2(original.x, original.z),
+      y:
+        new THREE.Spherical().setFromVector3(target).phi -
+        new THREE.Spherical().setFromVector3(original).phi,
+    });
+  }, [monasView]);
+  useEffect(() => {
+    if (!skyView || station !== 0) return;
+    const original = new THREE.Vector3(...stations[0].look).sub(
+      new THREE.Vector3(...stations[0].position),
+    );
+    const target = celestialDirection(skyView.hour);
+    setDrag({
+      x: Math.atan2(target.x, target.z) - Math.atan2(original.x, original.z),
+      y:
+        new THREE.Spherical().setFromVector3(target).phi -
+        new THREE.Spherical().setFromVector3(original).phi,
+    });
+  }, [skyView]);
   const canInteract = useCallback(() => dragDistance.current <= 6, []);
   const currentStation = stations[station];
 
@@ -516,11 +473,11 @@ export default function Scene({
           dragDistance.current += Math.hypot(dx, dy);
           if (Math.abs(dx) + Math.abs(dy) > 4)
             setDrag((v) => ({
-              x: Math.max(-0.65, Math.min(0.65, v.x - dx * 0.003)),
+              x: (v.x - dx * 0.003) % (Math.PI * 2),
               y:
                 e.pointerType === "touch"
-                  ? 0
-                  : Math.max(-1.5, Math.min(1.5, v.y + dy * 0.008)),
+                  ? v.y
+                  : Math.max(-1, Math.min(1, v.y + dy * 0.004)),
             }));
           start.current = { x: e.clientX, y: e.clientY };
         }
@@ -546,20 +503,7 @@ export default function Scene({
           });
         }}
       >
-        <fog attach="fog" args={["#d7d9cf", 65, 195]} />
-        <ambientLight intensity={1.15} />
-        <hemisphereLight args={["#fcf8ec", "#9c977f", 1.6]} />
-        <directionalLight
-          position={[15, 35, 20]}
-          intensity={2.5}
-          castShadow={!low}
-          shadow-mapSize={[2048, 2048]}
-          shadow-camera-left={-40}
-          shadow-camera-right={40}
-          shadow-camera-top={45}
-          shadow-camera-bottom={-95}
-          shadow-normalBias={0.05}
-        />
+        <EnvironmentLighting hour={hour} low={low} />
         {[-14, -33, -49].map((z) => (
           <pointLight
             key={z}
@@ -570,7 +514,12 @@ export default function Scene({
             color="#fff1d7"
           />
         ))}
-        <City />
+        <CityEnvironment
+          night={nightAmount(hour)}
+          low={low}
+          reduced={reduced}
+          active={station === 0 && !paused && !hidden}
+        />
         <Suspense fallback={null}>
           <Building />
           <Lobby

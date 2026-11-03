@@ -34,6 +34,9 @@ Workspace: `C:\Belajar_Pemograman\Project\3d-gallery`. Sumber konten dan aset: `
 
 ## Brand Commitments
 
+Tambahan kebutuhan pemilik: aktivitas warga dan lalu lintas sederhana di lingkungan Jakarta; kamera dapat menoleh horizontal 360°; Monas dipindah ke seberang depan museum (di belakang arah pandangan awal); taman Monas menjadi acuan lingkungannya. Suasana dapat dipilih dari pagi ke malam dengan slider. Batas kota disamarkan kabut halus, dan langit menampilkan matahari, bulan, bintang, serta awan. Implementasi tetap berupa showcase ilustratif dengan jalur kamera terarah.
+
+
 - Referensi pengalaman dan layout: https://3d-gallery.framer.website/.
 - Referensi interior dari pemilik: `docs/references/user-gallery-interior.png`.
 - Referensi posisi informasi dan denah: `docs/references/framer-interior-desktop.png`.
