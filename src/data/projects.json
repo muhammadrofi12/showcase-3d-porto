@@ -1,0 +1,669 @@
+[
+  {
+    "id": "ocs-edu",
+    "title": "OCS EDU",
+    "description": "Proyek mandiri platform manajemen sekolah dalam ekosistem OCS, dibangun dari UI/UX hingga frontend dan backend. Saat ini dalam tahap pengujian.",
+    "overview": "OCS EDU merupakan proyek mandiri untuk portofolio dalam ekosistem Our Creative Solution yang dikembangkan sejak Agustus 2026. Aplikasi ini menghubungkan administrasi akademik, presensi, materi pembelajaran, ujian daring, dan rapor melalui antarmuka untuk admin sekolah, guru, siswa, dan orang tua. Sebagai solo developer, saya menangani perancangan UI/UX, frontend, backend, serta landing page produk. Aplikasi sedang dalam tahap pengujian; galeri menampilkan antarmuka aplikasi dari lingkungan pengujian beserta landing page produk.",
+    "role": "Pengembangan mandiri • UI/UX, frontend dan backend",
+    "year": "2026",
+    "categories": [
+      "Website",
+      "Fullstack",
+      "Web Application",
+      "UI/UX Design"
+    ],
+    "tech": [
+      "Laravel",
+      "PHP",
+      "React",
+      "Inertia.js",
+      "Tailwind CSS",
+      "Astro"
+    ],
+    "cover": "/artworks/ocs-edu/ocsEduMockup.webp",
+    "images": [
+      "/artworks/ocs-edu/ocsEduMockup.webp",
+      "/artworks/ocs-edu/ocsEduTeacher.webp",
+      "/artworks/ocs-edu/ocsEduAdmin.webp",
+      "/artworks/ocs-edu/ocsEduAttendance.webp",
+      "/artworks/ocs-edu/ocsEduLanding.webp"
+    ],
+    "links": [
+      {
+        "label": "Lihat website produk",
+        "url": "https://edu.ourcreativesolution.my.id/"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/ocs-edu"
+  },
+  {
+    "id": "rekyndness-multi-partner-operational-donation-dashboard",
+    "title": "Rekyndness — Multi-Partner Operational & Donation Dashboard",
+    "description": "Dashboard operasional dan donasi multi-mitra berbasis web untuk Rekyndness.id dengan Role-Based Access Control (RBAC), isolasi data antar mitra, serta modul khusus kebutuhan operasional mitra: pengelolaan bank sampah (Bank Sampah Asri), pencatatan data warga & rekap pemeriksaan kesehatan (Posyandu Ramin), dan dokumentasi rekap kegiatan (Komunitas Relawan Cibinong).",
+    "overview": "Rekyndness.id merupakan platform berbasis web untuk pengelolaan donasi mainan pasca-pakai dan koordinasi organisasi sosial. Pada Tugas Akhir ini, sistem yang sebelumnya berfokus pada Bank Sampah Asri dikembangkan menjadi Dashboard Multi-Mitra terpadu untuk mengakomodasi kebutuhan operasional spesifik masing-masing mitra: pengelolaan operasional bank sampah (Bank Sampah Asri), pencatatan data warga serta rekap pemeriksaan kesehatan balita dan lansia (Posyandu Ramin), serta dokumentasi dan rekap kegiatan kerelawanan (Komunitas Relawan Cibinong). Sistem menerapkan Role-Based Access Control (RBAC), isolasi data antar mitra, manajemen donasi, manajemen anggota/kader, profil mitra, dan ekspor laporan terstruktur dengan modularitas tinggi untuk skalabilitas penambahan mitra.",
+    "role": "",
+    "year": "2026",
+    "categories": [
+      "Website",
+      "Fullstack",
+      "Web Application"
+    ],
+    "tech": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "React JS",
+      "Tailwind CSS",
+      "Material Tailwind",
+      "Cypress"
+    ],
+    "cover": "/artworks/rekyndness/rekyndnessMain.webp",
+    "images": [
+      "/artworks/rekyndness/rekyndnessMain.webp",
+      "/artworks/rekyndness/rekyndness1.webp",
+      "/artworks/rekyndness/rekyndness2.webp",
+      "/artworks/rekyndness/rekyndness3.webp",
+      "/artworks/rekyndness/rekyndness4.webp",
+      "/artworks/rekyndness/rekyndness5.webp",
+      "/artworks/rekyndness/rekyndness6.webp",
+      "/artworks/rekyndness/rekyndness7.webp",
+      "/artworks/rekyndness/rekyndness8.webp",
+      "/artworks/rekyndness/rekyndness9.webp"
+    ],
+    "links": [
+      {
+        "label": "See live",
+        "url": "https://gate.v2.rekyndness.id/signin"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/rekyndness-multi-partner-operational-donation-dashboard"
+  },
+  {
+    "id": "talkbuddy-ai",
+    "title": "TalkBuddy AI",
+    "description": "Platform pembelajaran bahasa berbasis web bertenaga kecerdasan buatan untuk menguasai Bahasa Inggris, Jepang, dan Arab.",
+    "overview": "TalkBuddy AI adalah platform pembelajaran bahasa berbasis web yang membantu pengguna menguasai Bahasa Inggris, Jepang, dan Arab dengan bantuan kecerdasan buatan. Platform ini menjawab masalah learner modern (seperti metode yang monoton, minim akses ke native speaker, dan kurangnya teman berlatih) dengan menghadirkan AI sebagai tutor personal 24/7. Mulai dari kuis otomatis, chat konsultasi grammar, hingga roleplay percakapan dengan suara, semuanya dirancang agar belajar bahasa terasa interaktif, adaptif, dan menyenangkan.",
+    "role": "",
+    "year": "2026",
+    "categories": [
+      "AI",
+      "Website",
+      "UI/UX Design"
+    ],
+    "tech": [
+      "React 19 + Vite 8",
+      "Tailwind CSS 4",
+      "React Router 7",
+      "Recharts",
+      "react-markdown",
+      "InsForge (BaaS)",
+      "Google OAuth",
+      "Google Gemini 2.0 Flash",
+      "Groq Llama 3.3 70B",
+      "Web Speech API (TTS & STT)"
+    ],
+    "cover": "/artworks/talkbuddy-ai/talkbuddyMain.webp",
+    "images": [
+      "/artworks/talkbuddy-ai/talkbuddyMain.webp",
+      "/artworks/talkbuddy-ai/talkbuddy1.webp",
+      "/artworks/talkbuddy-ai/talkbuddy2.webp",
+      "/artworks/talkbuddy-ai/talkbuddy3.webp",
+      "/artworks/talkbuddy-ai/talkbuddy4.webp",
+      "/artworks/talkbuddy-ai/talkbuddy5.webp",
+      "/artworks/talkbuddy-ai/talkbuddy6.webp",
+      "/artworks/talkbuddy-ai/talkbuddy7.webp",
+      "/artworks/talkbuddy-ai/talkbuddy8.webp",
+      "/artworks/talkbuddy-ai/talkbuddy9.webp"
+    ],
+    "links": [
+      {
+        "label": "See live",
+        "url": "https://talk-buddy-ai-one.vercel.app/"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/talkbuddy-ai"
+  },
+  {
+    "id": "veyra-vision",
+    "title": "Veyra Vision",
+    "description": "Prototipe pribadi pemantauan kendaraan melalui CCTV yang menggabungkan Flutter, FastAPI, dan computer vision. Melacak perpindahan kendaraan antar zona, dengan validasi lapangan yang masih berlangsung.",
+    "overview": "Veyra Vision merupakan proyek pribadi untuk memantau mobil dan sepeda motor di sekitar rumah melalui CCTV. Aplikasi Flutter untuk Android dan Windows terhubung ke layanan Python lokal untuk mengelola kamera, data kendaraan, dan riwayat aktivitas. Pemrosesan video dan penyimpanan data berjalan pada komputer lokal yang harus tetap aktif selama pemantauan. Prototipe masih dalam tahap pengujian, termasuk kalibrasi pengenalan kendaraan dan validasi pada perangkat fisik. Banner, dashboard, dan daftar kendaraan merupakan mockup presentasi berbasis layar aplikasi yang disunting dengan AI dan diisi data demo ilustratif. Gambar manajemen kamera merupakan screenshot dari lingkungan pengujian.",
+    "role": "Pengembangan mobile dan desktop, backend API, computer vision",
+    "year": "2026",
+    "categories": [
+      "Mobile",
+      "IoT",
+      "Machine Learning"
+    ],
+    "tech": [
+      "Flutter",
+      "Dart",
+      "Python",
+      "FastAPI",
+      "SQLite",
+      "WebSocket",
+      "YOLOv8",
+      "ByteTrack",
+      "OpenCV",
+      "go2rtc"
+    ],
+    "cover": "/artworks/veyra-vision/veyraMockup.webp",
+    "images": [
+      "/artworks/veyra-vision/veyraMockup.webp",
+      "/artworks/veyra-vision/veyraDashboard.webp",
+      "/artworks/veyra-vision/veyraVehicles.webp",
+      "/artworks/veyra-vision/veyraCameras.webp"
+    ],
+    "links": [],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/veyra-vision"
+  },
+  {
+    "id": "our-creative-solution-ocs",
+    "title": "Our Creative Solution (OCS)",
+    "description": "Website company profile interaktif dan modern untuk digital creative studio bergaya monokrom premium.",
+    "overview": "Our Creative Solution (OCS) merupakan website company profile modern yang dikembangkan untuk merepresentasikan identitas sebuah digital creative studio melalui pengalaman visual yang elegan dan interaktif. Dengan pendekatan desain monokrom premium, website ini memadukan animasi yang smooth, komponen interaktif, sistem bilingual (Indonesia & English), serta integrasi Discord Webhook untuk mendukung proses komunikasi dengan calon klien secara real-time.",
+    "role": "",
+    "year": "2025",
+    "categories": [
+      "Website",
+      "UI/UX Design"
+    ],
+    "tech": [
+      "React.js",
+      "Vite",
+      "Tailwind CSS",
+      "GSAP",
+      "Framer Motion",
+      "JavaScript",
+      "Vitest"
+    ],
+    "cover": "/artworks/our-creative-solution/ocsMain.webp",
+    "images": [
+      "/artworks/our-creative-solution/ocsMain.webp",
+      "/artworks/our-creative-solution/ocs1.webp",
+      "/artworks/our-creative-solution/ocs2.webp",
+      "/artworks/our-creative-solution/ocs3.webp",
+      "/artworks/our-creative-solution/ocs4.webp",
+      "/artworks/our-creative-solution/ocs5.webp",
+      "/artworks/our-creative-solution/ocs6.webp"
+    ],
+    "links": [
+      {
+        "label": "See live",
+        "url": "https://our-creative-solution-v2.vercel.app/"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/our-creative-solution-ocs"
+  },
+  {
+    "id": "fawra-cloth---deep-sea-drop",
+    "title": "FAWRA Cloth - Deep Sea Drop",
+    "description": "Merancang dan mengembangkan landing page sekuens pakaian premium untuk koleksi terbatas FAWRA 'Deep Sea Drop'.",
+    "overview": "FAWRA adalah brand clothing premium yang mengusung konsep deep-sea aesthetic. Website ini dibuat sebagai landing page sequence untuk koleksi terbatas 'Deep Sea Drop' yang terinspirasi dari kehidupan laut dalam. Halaman ini menampilkan animasi imersif, scroll-triggered transitions, dan visual cinematik yang menyorot produk t-shirt bertema Kraken.",
+    "role": "",
+    "year": "2024",
+    "categories": [
+      "Website",
+      "Exploration"
+    ],
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "GSAP"
+    ],
+    "cover": "/artworks/fawra-cloth---deep-sea-drop/fawraCloth.webp",
+    "images": [
+      "/artworks/fawra-cloth---deep-sea-drop/fawraCloth.webp",
+      "/artworks/fawra-cloth---deep-sea-drop/fawra1.webp",
+      "/artworks/fawra-cloth---deep-sea-drop/fawra2.webp"
+    ],
+    "links": [
+      {
+        "label": "See live",
+        "url": "https://fawra-cloth.netlify.app/"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/rofi.exe/"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/fawra-cloth---deep-sea-drop"
+  },
+  {
+    "id": "agrofy",
+    "title": "Agrofy",
+    "description": "Aplikasi mobile Android untuk pengelolaan limbah pertanian yang dibangun saat MSIB Infinite Learning, terintegrasi dengan backend web via REST API.",
+    "overview": "Agrofy merupakan proyek kolaborasi capstone yang dikembangkan saat program MSIB di Infinite Learning. Platform ini membantu petani mengelola, memantau, dan memberi nilai ekonomis pada limbah pertanian organik. Sebagai Android Mobile Developer, saya berfokus mengembangkan aplikasi mobile native berbasis Kotlin, mengonsumsi REST API yang disediakan oleh tim web backend untuk fitur autentikasi, forum komunitas, pelacakan pengolahan limbah, dan materi edukasi.",
+    "role": "",
+    "year": "2024",
+    "categories": [
+      "Mobile",
+      "Website",
+      "UI/UX Design"
+    ],
+    "tech": [
+      "React.js",
+      "Kotlin",
+      "Tailwind CSS",
+      "Firebase",
+      "REST API",
+      "Figma"
+    ],
+    "cover": "/artworks/agrofy/agrofyApp.webp",
+    "images": [
+      "/artworks/agrofy/agrofyApp.webp",
+      "/artworks/agrofy/agrofy1.webp"
+    ],
+    "links": [
+      {
+        "label": "Github",
+        "url": "https://github.com/muhammadrofi12/Agrofy_App"
+      },
+      {
+        "label": "See live Web",
+        "url": "https://agrofy.netlify.app/"
+      },
+      {
+        "label": "Demo FE",
+        "url": "https://appetize.io/app/b_3jmp5pdnjtwmepjurglatjs64y"
+      },
+      {
+        "label": "Poster",
+        "url": "https://drive.google.com/file/d/1O5UYmk6IZI9_8TKdukFytVzf2CaqugR6/view?usp=sharing"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/agrofy"
+  },
+  {
+    "id": "web-wimala",
+    "title": "Web Wimala",
+    "description": "Redesigned and optimized Wimala’s website for better UX, performance, responsiveness, and SEO.",
+    "overview": "Proyek ini berfokus pada penyempurnaan UX dan performa website perusahaan Wimala. Perubahan mencakup struktur navigasi, responsivitas desain, dan optimasi SEO seperti penggunaan tag heading yang sesuai dan metadata yang tepat.",
+    "role": "",
+    "year": "2024",
+    "categories": [
+      "Website"
+    ],
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "SEO"
+    ],
+    "cover": "/artworks/web-wimala/webWimala.webp",
+    "images": [
+      "/artworks/web-wimala/webWimala.webp",
+      "/artworks/web-wimala/wimala1.webp",
+      "/artworks/web-wimala/wimala2.webp",
+      "/artworks/web-wimala/wimala4.webp",
+      "/artworks/web-wimala/wimala5.webp",
+      "/artworks/web-wimala/wimala6.webp"
+    ],
+    "links": [
+      {
+        "label": "See live",
+        "url": "https://wimala.co.id/"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/web-wimala"
+  },
+  {
+    "id": "warung-bude-app",
+    "title": "Warung Bude App",
+    "description": "Designed a user-friendly shopping app interface using Figma for Warung Bude.",
+    "overview": "Warung Bude App adalah rancangan aplikasi belanja lokal dengan pendekatan desain yang sederhana, ramah pengguna, dan mudah diakses oleh siapa pun, termasuk pengguna non-teknis.",
+    "role": "",
+    "year": "2023",
+    "categories": [
+      "UI/UX Design",
+      "Mobile"
+    ],
+    "tech": [
+      "Figma"
+    ],
+    "cover": "/artworks/warung-bude-app/warungBudeApp.webp",
+    "images": [
+      "/artworks/warung-bude-app/warungBudeApp.webp"
+    ],
+    "links": [
+      {
+        "label": "Prototype 1",
+        "url": "https://www.figma.com/proto/xyVmdnOov2OBloWQapHqWh/Warung-Bude?page-id=403%3A159&node-id=403-160&viewport=609%2C390%2C0.1&scaling=contain&starting-point-node-id=403%3A160"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/warung-bude-app"
+  },
+  {
+    "id": "devmaps",
+    "title": "DevMaps",
+    "description": "Designed a modern online learning platform UI using Figma for Web DevMaps.",
+    "overview": "DevMaps hadir sebagai aplikasi web yang menawarkan jalur belajar terstruktur sesuai minat dan bakat pengguna. Platform ini menyediakan roadmap pembelajaran, rekomendasi kelas, dan fitur komunitas belajar IT.",
+    "role": "",
+    "year": "2023",
+    "categories": [
+      "UI/UX Design",
+      "Website"
+    ],
+    "tech": [
+      "Figma"
+    ],
+    "cover": "/artworks/devmaps/devMaps.webp",
+    "images": [
+      "/artworks/devmaps/devMaps.webp"
+    ],
+    "links": [
+      {
+        "label": "Prototype 1",
+        "url": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?node-id=181-313&viewport=-20%2C455%2C0.03&t=Dhxorg4s6Ee9Eii5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=181%3A313&show-proto-sidebar=1&page-id=111%3A18"
+      },
+      {
+        "label": "Prototype 2",
+        "url": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?page-id=111%3A18&type=design&node-id=623-5830&viewport=-799%2C397%2C0.08&scaling=scale-down&starting-point-node-id=623%3A4683&show-proto-sidebar=1"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/devmaps"
+  },
+  {
+    "id": "wipala-app",
+    "title": "Wipala App",
+    "description": "Designed a travel app interface for exploring sea tourism using Figma.",
+    "overview": "Wipala merupakan konsep aplikasi wisata bahari yang memudahkan pengguna dalam menjelajah destinasi pantai & laut. Desain UI meliputi fitur eksplorasi wisata, pemesanan perjalanan, dan galeri destinasi.",
+    "role": "",
+    "year": "2023",
+    "categories": [
+      "UI/UX Design",
+      "Mobile"
+    ],
+    "tech": [
+      "Figma",
+      "Miro"
+    ],
+    "cover": "/artworks/wipala-app/wipalaApp.webp",
+    "images": [
+      "/artworks/wipala-app/wipalaApp.webp"
+    ],
+    "links": [
+      {
+        "label": "Prototype 1",
+        "url": "https://www.figma.com/proto/S37WHaGgb89Hyhyr3obbAg/WIPALA-by-GG?page-id=1%3A5&node-id=289-2699&viewport=429%2C313%2C0.11&t=4kSTIXGpXA07Xy62-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=125%3A1229"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/wipala-app"
+  },
+  {
+    "id": "greensort-platform",
+    "title": "GreenSort Platform",
+    "description": "Platform valuasi limbah B2B berbasis AI untuk pengelolaan limbah berkelanjutan, dikembangkan pada program Coding Camp 2025 powered by DBS Foundation.",
+    "overview": "GreenSort adalah platform B2B cerdas untuk valuasi limbah yang dikembangkan sebagai proyek program Coding Camp 2025 powered by DBS Foundation. Platform web ini menjawab masalah rendahnya tingkat daur ulang dan rantai pasok limbah yang tidak efisien di Indonesia dengan teknologi pengenalan gambar dan dataset RealWaste. GreenSort mampu mengklasifikasikan 9 jenis limbah (kardus, sisa makanan, kaca, logam, kertas, plastik, tekstil, vegetasi, dan lainnya) serta mengkalkulasi harga transaksi secara otomatis berdasarkan jenis dan bobot.",
+    "role": "",
+    "year": "2025",
+    "categories": [
+      "Machine Learning",
+      "Website"
+    ],
+    "tech": [
+      "React.js",
+      "Python",
+      "TensorFlow",
+      "Flask",
+      "Firebase"
+    ],
+    "cover": "/artworks/greensort-platform/greenSort.webp",
+    "images": [
+      "/artworks/greensort-platform/greenSort.webp"
+    ],
+    "links": [
+      {
+        "label": "Github",
+        "url": "https://github.com/muhammadrofi12/GreenSort-Platform"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/greensort-platform"
+  },
+  {
+    "id": "bangunkarya-pro-web-platform-kontraktor-interior-specialist",
+    "title": "BangunKarya Pro — Web Platform Kontraktor & Interior Specialist",
+    "description": "Platform web fullstack kontraktor & spesialis interior modern yang terintegrasi dengan Dashboard CMS Admin dinamis dan analitik pengunjung real-time.",
+    "overview": "BangunKarya Pro adalah platform web fullstack perusahaan jasa konstruksi dan interior yang dirancang untuk meningkatkan kredibilitas merek, mengelola portofolio proyek secara dinamis, dan menangkap calon klien (leads). Sistem dilengkapi dengan landing page publik responsif bertema gelap modern serta CMS Control Panel admin untuk mengelola katalog proyek, layanan, alur kerja, testimoni, dan analitik pengunjung real-time.",
+    "role": "",
+    "year": "2026",
+    "categories": [
+      "Website",
+      "Fullstack",
+      "Laravel",
+      "Inertia.js",
+      "React"
+    ],
+    "tech": [
+      "Laravel 13",
+      "Inertia.js v3",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "MySQL / MariaDB",
+      "Docker",
+      "Pest PHP"
+    ],
+    "cover": "/artworks/bangunkarya-pro/bangunkaryaMain.webp",
+    "images": [
+      "/artworks/bangunkarya-pro/bangunkaryaMain.webp",
+      "/artworks/bangunkarya-pro/bangunkarya1.webp",
+      "/artworks/bangunkarya-pro/bangunkarya2.webp",
+      "/artworks/bangunkarya-pro/bangunkarya3.webp"
+    ],
+    "links": [],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/bangunkarya-pro-web-platform-kontraktor-interior-specialist"
+  },
+  {
+    "id": "blade-crown-landing-page-umkm-barbershop",
+    "title": "Blade & Crown — Landing Page UMKM Barbershop",
+    "description": "Landing page interaktif bernuansa dark-mode editorial mewah untuk barbershop modern, dilengkapi katalog layanan interaktif, galeri atmosfer, dan reservasi WhatsApp.",
+    "overview": "Blade & Crown adalah landing page interaktif yang dirancang khusus untuk bisnis barbershop & grooming lounge modern. Mengusung estetika visual dark-mode yang mewah dan responsif, website ini dilengkapi dengan katalog layanan interaktif, galeri atmosfer interior, serta sistem reservasi jadwal tanpa antre yang langsung terhubung ke WhatsApp.",
+    "role": "Web Development, UI/UX Design",
+    "year": "2026",
+    "categories": [
+      "Website",
+      "UI/UX Design"
+    ],
+    "tech": [
+      "React 19",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Vite 8",
+      "JavaScript",
+      "Lucide React"
+    ],
+    "cover": "/artworks/blade-crown/barbershopMain.webp",
+    "images": [
+      "/artworks/blade-crown/barbershopMain.webp",
+      "/artworks/blade-crown/barbershop1.webp",
+      "/artworks/blade-crown/barbershop2.webp"
+    ],
+    "links": [
+      {
+        "label": "See live web",
+        "url": "https://template-umkm-babershop.vercel.app/"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/blade-crown-landing-page-umkm-barbershop"
+  },
+  {
+    "id": "voltx-ev-charging-station-simulator-spklu",
+    "title": "VOLTX — EV Charging Station Simulator (SPKLU)",
+    "description": "Simulator Stasiun Pengisian Kendaraan Listrik Umum (SPKLU) interaktif berbasis web dengan Python & FastAPI, telemetri WebSockets real-time, layar Kiosk SPKLU, aplikasi mobile Driver, dan Clean Architecture.",
+    "overview": "VOLTX adalah sistem simulasi Stasiun Pengisian Kendaraan Listrik Umum (SPKLU / EVCS) komprehensif yang dirancang untuk mensimulasikan alur pengisian daya mobil listrik secara realistis dari hulu ke hilir. Sistem mengintegrasikan dua antarmuka utama: Layar Totem Fisik SPKLU (Kiosk Screen) di laptop dengan gauge telemetri live, serta Aplikasi Driver di smartphone untuk pemindaian QR nozzle, pemilihan target kWh/SoC, deposit hold multi-metode (Wallet, QRIS, E-Money RFID), dan fitur auto-refund seketika saat penghentian sesi. Sistem mendukung integrasi hardware riil (pembacaan baterai via ADB dan deteksi port fisik USB) serta diverifikasi dengan 39 automated unit tests.",
+    "role": "",
+    "year": "2026",
+    "categories": [
+      "Website",
+      "Fullstack",
+      "Web Application"
+    ],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "WebSockets",
+      "SQLAlchemy",
+      "SQLite",
+      "Pydantic",
+      "Jinja2",
+      "Docker",
+      "Cloudflare Tunnel"
+    ],
+    "cover": "/artworks/voltx/csKiosk.webp",
+    "images": [
+      "/artworks/voltx/csKiosk.webp",
+      "/artworks/voltx/csLogin.webp",
+      "/artworks/voltx/csDriverHome.webp",
+      "/artworks/voltx/csVerify.webp",
+      "/artworks/voltx/csChargingSelect.webp",
+      "/artworks/voltx/csPayment.webp",
+      "/artworks/voltx/csProgress.webp",
+      "/artworks/voltx/csReceipt.webp"
+    ],
+    "links": [
+      {
+        "label": "Source Code",
+        "url": "https://github.com/muhammadrofi12/charging-station-simulation"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/voltx-ev-charging-station-simulator-spklu"
+  },
+  {
+    "id": "movie-app",
+    "title": "Movie App",
+    "description": "Created a responsive movie info app using TMDb API with web (React.js) and mobile (Kotlin) versions.",
+    "overview": "Aplikasi ini menampilkan informasi film dengan data yang diambil dari TMDb API. Versi web dibangun menggunakan React.js dan Tailwind CSS, sedangkan versi mobile menggunakan Kotlin dan Jetpack Compose.",
+    "role": "",
+    "year": "2023",
+    "categories": [
+      "Website",
+      "Mobile",
+      "UI/UX Design"
+    ],
+    "tech": [
+      "React.js",
+      "Tailwind CSS",
+      "TMDb API",
+      "Kotlin",
+      "Jetpack Compose"
+    ],
+    "cover": "/artworks/movie-app/movieApp.webp",
+    "images": [
+      "/artworks/movie-app/movieApp.webp",
+      "/artworks/movie-app/movieMobile.webp"
+    ],
+    "links": [
+      {
+        "label": "See live web",
+        "url": "https://movie-app-v1-rofz.vercel.app/"
+      },
+      {
+        "label": "Github web",
+        "url": "https://github.com/muhammadrofi12/movie-app"
+      },
+      {
+        "label": "Github mobile",
+        "url": "https://github.com/muhammadrofi12/FE_Taks_IL"
+      },
+      {
+        "label": "Posting LinkedIn",
+        "url": "https://www.linkedin.com/posts/muhammad-rofi-ul-arham_frontend-jetpackcompose-androiddevelopment-activity-7260901502913830912-9S5u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD41MHgBRLgKOg5ZQJgvrhGxocwzlx66w3g"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/movie-app"
+  },
+  {
+    "id": "iot-attendance-system",
+    "title": "IoT Attendance System",
+    "description": "Membangun sistem absensi karyawan berbasis IoT menggunakan ESP32 dengan autentikasi dua faktor (RFID & Fingerprint) serta dashboard web real-time.",
+    "overview": "Sistem absensi karyawan terintegrasi IoT yang menggunakan perangkat keras ESP32 dengan sensor RFID (MFRC522) dan Fingerprint (AS608) untuk autentikasi dua faktor (2FA). Sistem ini menyediakan dashboard admin berbasis web untuk mengelola data karyawan dan melihat log absensi secara real-time.",
+    "role": "",
+    "year": "2024",
+    "categories": [
+      "IoT",
+      "Website"
+    ],
+    "tech": [
+      "React",
+      "TypeScript",
+      "Express.js",
+      "PostgreSQL",
+      "ESP32",
+      "C++"
+    ],
+    "cover": "/artworks/iot-attendance-system/absensiRfidFinger.webp",
+    "images": [
+      "/artworks/iot-attendance-system/absensiRfidFinger.webp"
+    ],
+    "links": [
+      {
+        "label": "Github",
+        "url": "https://github.com/muhammadrofi12/Absensi-RFID-Finger"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/iot-attendance-system"
+  },
+  {
+    "id": "landing-page-sport-store",
+    "title": "Landing Page Sport Store",
+    "description": "Mengembangkan landing page responsif untuk toko peralatan olahraga menggunakan Bootstrap 5 dan teknologi web modern.",
+    "overview": "Proyek ini merupakan project kuliah membuat tampilan landing page modern untuk mensimulasikan toko peralatan olahraga online. Desain mencakup layout bersih dengan bagian hero, daftar produk, serta tombol call-to-action.",
+    "role": "",
+    "year": "2023",
+    "categories": [
+      "Website"
+    ],
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Bootstrap 5"
+    ],
+    "cover": "/artworks/landing-page-sport-store/rofzSport.webp",
+    "images": [
+      "/artworks/landing-page-sport-store/rofzSport.webp"
+    ],
+    "links": [
+      {
+        "label": "See live",
+        "url": "https://rofz-sport-store-v1.vercel.app/"
+      },
+      {
+        "label": "Github",
+        "url": "https://github.com/muhammadrofi12/Project-Penweb-1"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/landing-page-sport-store"
+  },
+  {
+    "id": "web-covid",
+    "title": "Web Covid",
+    "description": "Designed and developed a COVID-19 information site using React.js with responsive UI/UX.",
+    "overview": "Website ini menyediakan data informasi COVID-19 terkini serta edukasi kesehatan. Dibangun dengan React.js dan menggunakan Tailwind CSS untuk tampilan responsif, berfokus pada kemudahan akses informasi publik.",
+    "role": "",
+    "year": "2023",
+    "categories": [
+      "Website",
+      "UI/UX Design"
+    ],
+    "tech": [
+      "React.js",
+      "Tailwind CSS",
+      "JavaScript",
+      "API Integration"
+    ],
+    "cover": "/artworks/web-covid/webCovid.webp",
+    "images": [
+      "/artworks/web-covid/webCovid.webp"
+    ],
+    "links": [
+      {
+        "label": "See live",
+        "url": "https://covid-v2-rofz.vercel.app/"
+      }
+    ],
+    "caseStudy": "https://rofiull.vercel.app/portfolio/web-covid"
+  }
+]

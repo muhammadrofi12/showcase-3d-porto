@@ -1,0 +1,55 @@
+﻿{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-03T00:00:00+07:00",
+  "title": "Design System: Ruang Karya",
+  "extensions": {
+    "colorMeta": {
+      "rust": { "role": "primary", "displayName": "Bata" },
+      "paper": { "role": "neutral", "displayName": "Kertas hangat transparan" },
+      "ink": { "role": "neutral", "displayName": "Tinta hijau gelap" }
+    },
+    "shadows": [
+      { "name": "paper", "value": "0 6px 24px #33372e0a", "purpose": "Pemisahan ringan overlay dari dunia 3D." },
+      { "name": "dialog", "value": "0 22px 100px #17201440", "purpose": "Pemisahan dialog modal." },
+      { "name": "art-marker", "value": "0 2px 10px #0002", "purpose": "Marker karya dalam scene." }
+    ],
+    "motion": [
+      { "name": "card-image-hover", "value": "transform 0.4s; scale(1.025)", "purpose": "Respons gambar katalog terhadap hover." },
+      { "name": "loading", "value": "spin 1.5s linear infinite", "purpose": "Indikator pemuatan." },
+      { "name": "camera", "value": "1 - Math.exp(-delta * 3.2)", "purpose": "Interpolasi titik pandang; faktor menjadi 1 pada reduced motion." },
+      { "name": "reduced-motion", "value": "animation: none; transition: none; scroll-behavior: auto", "purpose": "Mengikuti prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "mobile-css-max", "value": "600px" },
+      { "name": "tablet-css-max", "value": "900px" },
+      { "name": "wide-css-min", "value": "1700px" },
+      { "name": "catalog-first-below", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Tindakan utama pada katalog atau detail.",
+      "html": "<button class=\"primary\">Baca case study <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></button>",
+      "css": ".primary{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;background:var(--ink,#33372e);color:#fffdf3;border:0;border-radius:0;padding:15px 19px;font:11px Inter,Arial,sans-serif;cursor:pointer}.primary:hover{background:#484f3f;color:#fff}.primary:focus-visible{outline:2px solid var(--rust,#a34c34);outline-offset:5px}.primary:disabled{opacity:.3;cursor:default}"
+    },
+    {
+      "name": "Paper panel",
+      "kind": "card",
+      "refersTo": "paper-panel",
+      "description": "Material bersama untuk informasi ruang dan kontrol overlay.",
+      "html": "<div class=\"paper\"><span>RUANG 01</span><h3>Products &amp; Systems</h3><p>Dari kebutuhan sehari-hari menjadi sistem yang bekerja.</p></div>",
+      "css": ".paper{background:var(--paper,#f7f5eeef);color:var(--ink,#33372e);border-radius:2px;box-shadow:0 6px 24px #33372e0a;padding:25px;max-width:230px;font-family:Inter,Arial,sans-serif}.paper span{color:var(--rust,#a34c34);font-size:9px;font-weight:600;letter-spacing:1.7px}.paper h3{font:400 32px/1.12 Georgia,serif;letter-spacing:-.8px;margin:16px 0 0}.paper p{font-size:12px;line-height:1.75;color:#62675b;margin:18px 0 0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Gallery netral berskylight, overlay Framer, kota Jakarta",
+    "overview": "Acuan yang sudah dipilih pemilik: karya dan ruang 3D memimpin, informasi hadir sebagai kertas hangat dengan tipografi editorial. Kota masih berupa geometri prosedural ilustratif; screenshot lokal bukan sertifikasi FPS perangkat fisik.",
+    "keyCharacteristics": ["Kertas hangat dan tinta hijau gelap", "Aksen bata", "Georgia editorial dan Inter utilitas", "Interior netral berskylight"],
+    "rules": [{ "name": "Aturan warna karya", "body": "Pertahankan sRGB dan material karya tanpa tone mapping.", "section": "colors" }],
+    "dos": ["Pertahankan referensi pemilik.", "Jaga proporsi utuh screenshot.", "Sediakan akses katalog HTML."],
+    "donts": ["Jangan klaim replika geografis Jakarta.", "Jangan hapus label demo atau prototipe.", "Jangan klaim sertifikasi FPS dari screenshot."]
+  }
+}
