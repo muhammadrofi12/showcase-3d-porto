@@ -476,6 +476,89 @@ h1 em {
   align-items: center;
   gap: 4px;
 }
+.night-event-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 40px;
+  padding: 8px 14px;
+  background: #34474d;
+  color: #fff6e1;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.night-event-link:hover:not(:disabled) {
+  background: #465e65;
+  color: #fff6e1;
+}
+.event-view .entrance-info h1 {
+  font-size: 32px;
+  line-height: 1.12;
+  margin: 12px 0;
+}
+.event-view .entrance-info .room-meta,
+.event-view .entrance-info .eyebrow {
+  display: none;
+}
+.event-view .entrance-info p {
+  margin: 12px 0;
+}
+.event-area-select {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 10px;
+  margin: 14px 0;
+}
+.event-area-select select {
+  min-height: 40px;
+  width: 100%;
+  padding: 8px;
+  color: var(--ink);
+  background: #f7f5ee;
+  border: 1px solid #b5b8aa;
+  font: inherit;
+  font-size: 12px;
+}
+.event-area-select select:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .event-view .entrance-info {
+    width: 225px;
+    padding: 16px;
+  }
+  .event-view .entrance-info h1 {
+    font-size: 24px;
+    margin: 0 0 8px;
+  }
+  .event-view .entrance-info p {
+    display: none;
+  }
+  .event-view .entrance-info .text-action {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .event-area-select {
+    margin: 10px 0;
+    gap: 5px;
+  }
+}
+.city-caption .event-hours {
+  font-size: 9px;
+  margin: 1px 0 5px;
+  letter-spacing: 0;
+}
+@media (min-width:901px) and (max-height:800px) {
+  .city-caption { left:365px; }
+}
+@media (max-width:900px) and (max-height:740px) {
+  .city-caption > span, .city-caption > small:not(.event-hours) { display:none; }
+  .entrance-info h1 { font-size:34px; }
+  .entrance-info p { display:none; }
+}
 .city-caption small {
   font-size: 9px;
   letter-spacing: 0.1px;

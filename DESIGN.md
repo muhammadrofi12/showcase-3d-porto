@@ -19,6 +19,11 @@ colors:
   gallery-roof: "#c6bfb0"
   skylight: "#f3f2e8"
   artwork-frame: "#49493f"
+  event-navy: "#34474d"
+  event-navy-hover: "#465e65"
+  event-text: "#fff6e1"
+  food-light: "#ffd5a0"
+  technology-light: "#b5d9ff"
 typography:
   display:
     fontFamily: "Georgia, serif"
@@ -84,6 +89,13 @@ components:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.selected-text}"
     padding: "9px 12px"
+  button-night-event:
+    backgroundColor: "{colors.event-navy}"
+    textColor: "{colors.event-text}"
+    padding: "8px 14px"
+  button-night-event-hover:
+    backgroundColor: "{colors.event-navy-hover}"
+    textColor: "{colors.event-text}"
 ---
 
 # Design System: Ruang Karya
@@ -119,6 +131,8 @@ Palet antarmuka mengikuti material interior yang hangat. Nilai frontmatter merup
 - **Artwork-frame:** pemisah gelap antara gambar dan dinding.
 
 **Aturan warna karya.** Tekstur karya memakai sRGB dan material tanpa tone mapping; pertahankan warna gambar, bukan menyamakannya dengan material bangunan.
+
+Tambahan acara malam (4 November 2026): **event-navy** dengan teks krem menandai pintasan acara. Bazar kuliner memakai lampu gantung amber dan point light **food-light**; booth teknologi memakai material biru abu serta point light **technology-light** yang lebih sejuk. Ini pembeda area luar, bukan penggantian palet kertas dan tinta gallery.
 
 ## Typography
 
@@ -178,6 +192,12 @@ Katalog, detail, dan tentang memakai dialog HTML dengan tombol tutup. Detail men
 ### Spatial navigation
 
 Kamera mengikuti titik pandang terarah, tersinkron dengan ruang, caption, dan denah. Tombol perjalanan, wheel, swipe vertikal, dan keyboard pada area pengalaman mengubah titik pandang; drag horizontal memutar arah 360° dan drag vertikal desktop menoleh dengan pitch terbatas. Interpolasi kamera memakai `1 - exp(-delta * 3.2)`, dihilangkan pada reduced motion. Animasi dan transisi CSS juga dihentikan pada reduced motion. Render dijeda ketika dialog terbuka atau dokumen tersembunyi.
+
+### Night event controls and scenery
+
+Pintasan `Acara malam` memakai event-navy, teks event-text, tinggi minimum 40px, padding 8px 14px, label 11px, dan warna event-navy-hover saat hover. Aksi memilih waktu 20.00 dan kamera keseluruhan acara pada desktop; di bawah 600px, kamera awal diarahkan ke Booth teknologi. Pandangan acara mobile memakai FOV 62° dan posisi kamera khusus untuk bazar, teknologi, serta ruko; desktop memakai FOV 48°. Select HTML `Area acara` menyediakan empat pandangan terarah; tinggi minimum 40px, padding 8px, teks 12px, latar `#f7f5ee`, border `#b5b8aa`, serta fokus rust 2px dengan offset 3px. Panel tetap memakai material kertas. Judul acara 32px/1.12; sampai 600px panel menjadi 225px dengan padding 16px, judul 24px, dan deskripsi disembunyikan.
+
+Enam stan makanan berkanopi, meja makan, dan lampu gantung mengisi satu petak taman depan; empat booth teknologi berangka persegi dan layar ilustratif mengisi petak lainnya. Keduanya hanya tampil mulai 18.00. Empat ruko makanan tetap berdiri di sisi Monas sepanjang hari: rolling door dan tanda `BUKA 18.00` terlihat sebelum buka, sedangkan pedagang, pelanggan, etalase pelayanan, serta lampu aktif muncul mulai 18.00. Cahaya area dikurangi dalam mode ringan. Layar dan tulisan `COBA DEMO` tidak menyediakan interaksi booth.
 
 ## Do's and Don'ts
 

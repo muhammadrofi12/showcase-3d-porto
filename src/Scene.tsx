@@ -319,25 +319,56 @@ function Artwork({
   );
 }
 
+const eventViews: Record<
+  string,
+  { position: [number, number, number]; look: [number, number, number] }
+> = {
+  overview: { position: [57, 35, 25], look: [0, 2, 76] },
+  food: { position: [4, 17, 39], look: [-29, 1.7, 63] },
+  tech: { position: [53, 17, 40], look: [29, 1.5, 63] },
+  shops: { position: [25, 19, 44], look: [65, 3, 82] },
+};
+
 function Rig({
   station,
+  eventView,
+  eventArea,
   lobbyView,
   snapCount,
   reduced,
   drag,
 }: {
   station: number;
+  eventView: number;
+  eventArea: string;
   lobbyView: LobbyViewpointId;
   snapCount: number;
   reduced: boolean;
   drag: { x: number; y: number };
 }) {
-  const { camera } = useThree();
+  const { camera, size } = useThree();
+  const mobileEventViews: typeof eventViews = {
+    ...eventViews,
+    food: {
+      position: [-29, 43, 20] as [number, number, number],
+      look: [-29, 1, 63] as [number, number, number],
+    },
+    tech: {
+      position: [29, 43, 20] as [number, number, number],
+      look: [29, 1, 63] as [number, number, number],
+    },
+    shops: {
+      position: [10, 44, 72] as [number, number, number],
+      look: [65, 3, 82] as [number, number, number],
+    },
+  };
   const look = useRef(new THREE.Vector3(0, 1, -10));
   const current =
-    station === 1 && lobbyView !== "wide"
-      ? lobbyViewpoints[lobbyView]
-      : stations[station];
+    station === 0 && eventView > 0
+      ? (size.width < 600 ? mobileEventViews : eventViews)[eventArea]
+      : station === 1 && lobbyView !== "wide"
+        ? lobbyViewpoints[lobbyView]
+        : stations[station];
   const previousStation = useRef(-100);
   const previousSnap = useRef(0);
 
@@ -356,6 +387,15 @@ function Rig({
   }, [station, snapCount, current, camera]);
 
   useFrame((_, delta) => {
+    if (camera instanceof THREE.PerspectiveCamera) {
+      const fov = station === 0 && eventView > 0 && size.width < 600 ? 62 : 48;
+      if (Math.abs(camera.fov - fov) > 0.01) {
+        camera.fov = reduced
+          ? fov
+          : THREE.MathUtils.lerp(camera.fov, fov, 1 - Math.exp(-delta * 3));
+        camera.updateProjectionMatrix();
+      }
+    }
     const p = new THREE.Vector3(...current.position);
     const l = new THREE.Vector3(...current.look);
     const offset = l.clone().sub(p);
@@ -383,6 +423,8 @@ function Ready({ onReady }: { onReady: () => void }) {
 
 export default function Scene({
   station,
+  eventView,
+  eventArea,
   hour,
   monasView,
   skyView,
@@ -401,6 +443,8 @@ export default function Scene({
   paused,
 }: {
   station: number;
+  eventView: number;
+  eventArea: string;
   hour: number;
   monasView: number;
   skyView: { id: number; hour: number } | null;
@@ -430,6 +474,9 @@ export default function Scene({
   }, []);
 
   useEffect(() => setDrag({ x: 0, y: 0 }), [station, lobbyView]);
+  useEffect(() => {
+    if (eventView > 0) setDrag({ x: 0, y: 0 });
+  }, [eventView, eventArea]);
 
   useEffect(() => {
     if (!monasView || station !== 0) return;
@@ -515,6 +562,7 @@ export default function Scene({
           />
         ))}
         <CityEnvironment
+          hour={hour}
           night={nightAmount(hour)}
           low={low}
           reduced={reduced}
@@ -578,6 +626,8 @@ export default function Scene({
         </Suspense>
         <Rig
           station={station}
+          eventView={eventView}
+          eventArea={eventArea}
           lobbyView={lobbyView}
           snapCount={snapCount}
           reduced={reduced}

@@ -2,6 +2,7 @@ import { Suspense, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { RoundedBox, Text } from "@react-three/drei";
 import * as THREE from "three";
+import NightMarket from "./NightMarket";
 
 type V = [number, number, number];
 const cube = new THREE.BoxGeometry(1, 1, 1);
@@ -650,11 +651,13 @@ function MonasPark({ night }: { night: number }) {
 }
 
 export default function CityEnvironment({
+  hour,
   low,
   reduced,
   active,
   night,
 }: {
+  hour: number;
   low: boolean;
   reduced: boolean;
   active: boolean;
@@ -877,6 +880,7 @@ export default function CityEnvironment({
         moving={motion}
       />
       <MonasPark night={night} />
+      <NightMarket hour={hour} night={night} low={low} Person={Citizen} />
       {Array.from({ length: 8 }, (_, i) => (
         <Building
           key={`park-sky${i}`}

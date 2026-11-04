@@ -68,6 +68,8 @@ function App() {
   ).current;
   const [hour, setHour] = useState(10);
   const [monasView, setMonasView] = useState(0);
+  const [eventView, setEventView] = useState(0);
+  const [eventArea, setEventArea] = useState("overview");
   const [skyView, setSkyView] = useState<{ id: number; hour: number } | null>(
     null,
   );
@@ -209,6 +211,7 @@ function App() {
         return;
       }
       ensureAudioOnEntry(true);
+      setEventView(0);
       const nextStation = stations[next];
       if (withBlink && !reduced) {
         clearBlinkTimers();
@@ -440,7 +443,7 @@ function App() {
         if (Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.5)
           go(station + (dy > 0 ? 1 : -1));
       }}
-      className="experience"
+      className={`experience ${station === 0 && eventView > 0 ? "event-view" : ""}`}
       tabIndex={0}
       aria-label="Gallery 3D. Gunakan tombol panah untuk berpindah titik pandang."
       onKeyDown={(e) => {
@@ -466,6 +469,8 @@ function App() {
             <Scene
               hour={hour}
               monasView={monasView}
+              eventView={eventView}
+              eventArea={eventArea}
               skyView={skyView}
               paused={busy}
               station={station}
@@ -591,7 +596,9 @@ function App() {
               : `${activeRoom.code} · ${activeRoom.short.toUpperCase()}`}
         </div>
         <h1>
-          {station === 0 ? (
+          {station === 0 && eventView > 0 ? (
+            "Malam di taman."
+          ) : station === 0 ? (
             <>
               Ide menjadi
               <br />
@@ -601,7 +608,28 @@ function App() {
             activeRoom.title
           )}
         </h1>
-        <p>{activeRoom.subtitle}</p>
+        <p>
+          {station === 0 && eventView > 0
+            ? hour >= 18
+              ? "Kuliner hangat dan ide baru di sisi Monas."
+              : "Ruko buka pukul 18.00. Bazar dan booth hadir saat senja."
+            : activeRoom.subtitle}
+        </p>
+        {station === 0 && eventView > 0 && (
+          <label className="event-area-select">
+            Lihat area
+            <select
+              aria-label="Area acara"
+              value={eventArea}
+              onChange={(e) => setEventArea(e.target.value)}
+            >
+              <option value="overview">Semua area</option>
+              <option value="food">Bazar makanan</option>
+              <option value="tech">Booth teknologi</option>
+              <option value="shops">Ruko makanan</option>
+            </select>
+          </label>
+        )}
         {!inGuestbookRoom && (
           <div className="room-meta">{activeRoom.range}</div>
         )}
@@ -750,19 +778,36 @@ function App() {
           <div className="view-shortcuts">
             <button
               className="monas-look"
-              onClick={() => setMonasView((v) => v + 1)}
+              onClick={() => {
+                setEventView(0);
+                setMonasView((v) => v + 1);
+              }}
             >
               Lihat Monas <RotateCcw size={13} />
             </button>
             <button
               className="monas-look"
-              onClick={() =>
-                setSkyView((v) => ({ id: (v?.id ?? 0) + 1, hour }))
-              }
+              onClick={() => {
+                setEventView(0);
+                setSkyView((v) => ({ id: (v?.id ?? 0) + 1, hour }));
+              }}
             >
               Lihat langit <Sun size={13} />
             </button>
           </div>
+          <button
+            className="night-event-link"
+            onClick={() => {
+              setHour(20);
+              setEventArea(window.innerWidth < 600 ? "tech" : "overview");
+              setEventView((v) => v + 1);
+            }}
+          >
+            Acara malam <Moon size={13} />
+          </button>
+          <small className="event-hours">
+            Bazar kuliner & teknologi · 18.00–22.00
+          </small>
           <span>06°10′ S &nbsp; 106°49′ E</span>
           <span>TERINSPIRASI JAKARTA</span>
           <small>Lingkungan kota ilustratif</small>

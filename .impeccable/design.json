@@ -1,12 +1,17 @@
 ﻿{
   "schemaVersion": 2,
-  "generatedAt": "2026-11-03T00:00:00+07:00",
+  "generatedAt": "2026-11-04T00:00:00+07:00",
   "title": "Design System: Ruang Karya",
   "extensions": {
     "colorMeta": {
       "rust": { "role": "primary", "displayName": "Bata" },
       "paper": { "role": "neutral", "displayName": "Kertas hangat transparan" },
-      "ink": { "role": "neutral", "displayName": "Tinta hijau gelap" }
+      "ink": { "role": "neutral", "displayName": "Tinta hijau gelap" },
+      "event-navy": { "role": "secondary", "displayName": "Biru gelap pintasan acara" },
+      "event-navy-hover": { "role": "secondary", "displayName": "Biru gelap acara saat hover" },
+      "event-text": { "role": "neutral", "displayName": "Krem teks acara" },
+      "food-light": { "role": "secondary", "displayName": "Cahaya hangat bazar makanan" },
+      "technology-light": { "role": "secondary", "displayName": "Cahaya sejuk pameran teknologi" }
     },
     "shadows": [
       { "name": "paper", "value": "0 6px 24px #33372e0a", "purpose": "Pemisahan ringan overlay dari dunia 3D." },
@@ -42,12 +47,27 @@
       "description": "Material bersama untuk informasi ruang dan kontrol overlay.",
       "html": "<div class=\"paper\"><span>RUANG 01</span><h3>Products &amp; Systems</h3><p>Dari kebutuhan sehari-hari menjadi sistem yang bekerja.</p></div>",
       "css": ".paper{background:var(--paper,#f7f5eeef);color:var(--ink,#33372e);border-radius:2px;box-shadow:0 6px 24px #33372e0a;padding:25px;max-width:230px;font-family:Inter,Arial,sans-serif}.paper span{color:var(--rust,#a34c34);font-size:9px;font-weight:600;letter-spacing:1.7px}.paper h3{font:400 32px/1.12 Georgia,serif;letter-spacing:-.8px;margin:16px 0 0}.paper p{font-size:12px;line-height:1.75;color:#62675b;margin:18px 0 0}"
+    },
+    {
+      "name": "Night event shortcut",
+      "kind": "button",
+      "refersTo": "button-night-event",
+      "description": "Pintasan ke pukul 20.00: keseluruhan acara pada desktop (FOV 48°), Booth teknologi di bawah 600px (FOV 62°). Pandangan bazar, teknologi, dan ruko memakai posisi kamera khusus mobile. Memakai fokus rust bersama kontrol gallery.",
+      "html": "<button class=\"ds-night-event\">Acara malam <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6.25 6.25 0 0 0 8.268 8.268c.344-.215.825-.004.803.401\"/></svg></button>",
+      "css": ".ds-night-event{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:40px;padding:8px 14px;background:#34474d;color:#fff6e1;font:11px Inter,Arial,sans-serif;letter-spacing:0;border:0;cursor:pointer}.ds-night-event:hover:not(:disabled){background:#465e65;color:#fff6e1}.ds-night-event:focus-visible{outline:2px solid var(--rust,#a34c34);outline-offset:5px}.ds-night-event:disabled{opacity:.3;cursor:default}"
+    },
+    {
+      "name": "Night event area selector",
+      "kind": "input",
+      "description": "Select pandangan keseluruhan, bazar, teknologi, atau ruko. Tetap tersedia saat slider menunjukkan waktu sebelum buka.",
+      "html": "<label class=\"ds-event-area\">Lihat area<select aria-label=\"Area acara\"><option>Semua area</option><option>Bazar makanan</option><option>Booth teknologi</option><option>Ruko makanan</option></select></label>",
+      "css": ".ds-event-area{display:flex;flex-direction:column;gap:8px;margin:14px 0;font:10px Inter,Arial,sans-serif;color:var(--ink,#33372e)}.ds-event-area select{min-height:40px;width:100%;padding:8px;color:var(--ink,#33372e);background:#f7f5ee;border:1px solid #b5b8aa;font:12px Inter,Arial,sans-serif}.ds-event-area select:focus-visible{outline:2px solid var(--rust,#a34c34);outline-offset:3px}"
     }
   ],
   "narrative": {
     "northStar": "Gallery netral berskylight, overlay Framer, kota Jakarta",
     "overview": "Acuan yang sudah dipilih pemilik: karya dan ruang 3D memimpin, informasi hadir sebagai kertas hangat dengan tipografi editorial. Kota masih berupa geometri prosedural ilustratif; screenshot lokal bukan sertifikasi FPS perangkat fisik.",
-    "keyCharacteristics": ["Kertas hangat dan tinta hijau gelap", "Aksen bata", "Georgia editorial dan Inter utilitas", "Interior netral berskylight"],
+    "keyCharacteristics": ["Kertas hangat dan tinta hijau gelap", "Aksen bata", "Georgia editorial dan Inter utilitas", "Interior netral berskylight", "Pintasan navy untuk acara luar; cahaya kuliner hangat dan pameran teknologi sejuk mulai 18.00"],
     "rules": [{ "name": "Aturan warna karya", "body": "Pertahankan sRGB dan material karya tanpa tone mapping.", "section": "colors" }],
     "dos": ["Pertahankan referensi pemilik.", "Jaga proporsi utuh screenshot.", "Sediakan akses katalog HTML."],
     "donts": ["Jangan klaim replika geografis Jakarta.", "Jangan hapus label demo atau prototipe.", "Jangan klaim sertifikasi FPS dari screenshot."]

@@ -1,11 +1,11 @@
 {
     "schema_version": 2,
-    "commit": "",
-    "indexed_at": "2026-11-03T14:08:06Z",
+    "commit": "581b9717831ecc28891b3d3bca3f4ea5a1135004",
+    "indexed_at": "2026-11-03T22:55:22Z",
     "project": "C-Belajar_Pemograman-Project-3d-gallery",
-    "nodes": 331,
-    "edges": 624,
-    "original_size": 3080192,
-    "compressed_size": 293487,
-    "compression_level": 9
+    "nodes": 409,
+    "edges": 915,
+    "original_size": 4390912,
+    "compressed_size": 585908,
+    "compression_level": 3
 }

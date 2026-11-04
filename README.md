@@ -34,8 +34,11 @@ Buka URL yang ditampilkan Vite. Untuk build produksi: `npm run build`, lalu `npm
 - Slider **Waktu lingkungan** mengubah suasana pukul 06.00–22.00: pagi, siang, senja, dan malam. Langit, cahaya, kabut, jendela, lampu jalan, dan sorot Monas menyesuaikan. Waktu dipilih manual dan tidak tersimpan setelah reload.
 - Matahari dengan halo, bulan dengan tekstur prosedural, bintang malam, dan awan tipis digambar pada kubah langit. **Lihat langit** mengarahkan kamera ke matahari atau bulan sesuai waktu yang dipilih. Jalur benda langit bersifat artistik, bukan simulasi astronomi.
 - Kabut jarak menyamarkan batas lingkungan; terrain/jalan diteruskan melewati batas kabut agar horizon tidak terpotong. Langit tetap terlihat di atas kabut.
+- Empat ruko makanan di samping Monas (bakso, sate, martabak, dan kopi) tetap terlihat sepanjang hari. Sebelum pukul 18.00 rolling door tertutup, tanpa pedagang/pelanggan makanan dan lampu ruko aktif; mulai 18.00 ruko membuka pelayanan ilustratif dengan meja makan terisi dan cahaya hangat.
+- Dua petak taman depan menjadi area acara hanya mulai pukul 18.00: bazar dengan 6 stan makanan dan pameran teknologi dengan 4 booth. Sebelum jam buka, stan, booth, pengunjung acara, dan lampu acaranya tidak ditampilkan.
+- Tombol **Acara malam** memilih pukul 20.00 dan pandangan keseluruhan acara pada desktop; pada layar di bawah 600px, pandangan awal langsung ke Booth teknologi dengan framing mobile. Pilihan **Area acara** menyediakan Semua area, Bazar makanan, Booth teknologi, dan Ruko makanan; slider waktu tetap dapat diubah manual untuk melihat kondisi tutup/buka.
 
-Modul lingkungan: `CityEnvironment.tsx`, `EnvironmentLighting.tsx`, dan `SkyEnvironment.tsx` dalam `src/components/`.
+Modul lingkungan: `CityEnvironment.tsx`, `EnvironmentLighting.tsx`, `SkyEnvironment.tsx`, dan `NightMarket.tsx` dalam `src/components/`.
 
 React 19, TypeScript, Vite, Three.js, React Three Fiber, Drei, Lucide, CSS, dan SVG untuk denah. Scene diorganisasikan ke dalam modul `src/Scene.tsx` serta komponen `src/components/Lobby.tsx`, `FloorPlanBoard.tsx`, `ReceptionDesk.tsx`, `CatalogBook.tsx`, `Visitor.tsx`, dan `AiVisualRoom.tsx`.
 
@@ -53,10 +56,12 @@ Periksa perubahan teks, status, gambar demo, dan URL sebelum publikasi. Status O
 
 Jalankan dev server pada port 5173, kemudian `node scripts/smoke.mjs`. Skrip memakai Chrome lokal melalui Playwright, menguji masuk lobby (`00`), sudut pandang papan denah & meja katalog, sapaan petugas, pelindung drag-vs-klik, pembukaan buku katalog dua koleksi (19 proyek software + 8 visual AI), navigasi ruang `01–04`, detail proyek & detail visual AI beserta pemulihan fokus, empty state, context-loss fallback, mobile (`390×844`), dan reduced motion. Screenshot dan hasil tersimpan di `output/` (diabaikan Git).
 
-Build TypeScript/produksi (`npm run build`) dan smoke test terverifikasi secara lokal. Performa pada perangkat fisik, angka FPS/budget PRD pada berbagai hardware, serta subdomain produksi belum diverifikasi.
+Build TypeScript/produksi (`npm run build`) dan smoke test penuh (`npm run test:smoke`) terverifikasi secara lokal setelah penambahan acara malam, termasuk perbaikan panel pada layar pendek dan navigasi reduced motion. Performa pada perangkat fisik, angka FPS/budget PRD pada berbagai hardware, serta subdomain produksi belum diverifikasi.
 
 `node scripts/check-environment.mjs` memeriksa slider pagi/malam, tombol pandangan Monas/langit, rangkaian drag kamera, perpindahan ke lobby, error WebGL/shader, dan overflow mobile. Screenshot lingkungan, Monas, matahari, serta bulan/bintang tersimpan dalam `output/`; keberadaan dan komposisi visual ditinjau secara manual, bukan dinilai otomatis oleh skrip.
 
+Dengan dev server pada port 5173, jalankan `node scripts/check-night-market.mjs` untuk pemeriksaan acara malam. Pemeriksaan lokal terfokus sudah lolos: pintasan waktu 20.00, slider lewat keyboard, perpindahan kembali ke lobby, serta overflow mobile 390×844. Skrip mengambil screenshot sebelum buka (17.45), saat buka (18.00), malam, detail tiga area, ruko siang/malam, dan mobile ke `output/market-*.png` serta `output/shops-*.png`; hasil tersimpan di `output/market-result.json`. Komposisi dan visibilitas objek 3D perlu ditinjau dari screenshot, bukan dianggap sebagai assertion otomatis skrip.
+
 ## Cakupan versi saat ini
 
-Ruang Karya adalah nama kerja. Kota dan karakter memakai geometri prosedural sederhana. Berbagi URL per proyek, bahasa kedua, CMS, chat NPC interaktif, transaksi toko, dan eksplorasi kota bebas belum termasuk implementasi ini.
+Ruang Karya adalah nama kerja. Kota dan karakter memakai geometri prosedural sederhana. Acara malam dan ruko bersifat ilustratif: layar booth serta tulisan “COBA DEMO” adalah dekorasi, tanpa demo booth yang dapat diklik atau transaksi. Berbagi URL per proyek, bahasa kedua, CMS, chat NPC interaktif, transaksi toko, dan eksplorasi kota bebas belum termasuk implementasi ini.
