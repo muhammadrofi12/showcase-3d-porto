@@ -56,7 +56,15 @@ Periksa perubahan teks, status, gambar demo, dan URL sebelum publikasi. Status O
 
 Jalankan dev server pada port 5173, kemudian `node scripts/smoke.mjs`. Skrip memakai Chrome lokal melalui Playwright, menguji masuk lobby (`00`), sudut pandang papan denah & meja katalog, sapaan petugas, pelindung drag-vs-klik, pembukaan buku katalog dua koleksi (19 proyek software + 8 visual AI), navigasi ruang `01–04`, detail proyek & detail visual AI beserta pemulihan fokus, empty state, context-loss fallback, mobile (`390×844`), dan reduced motion. Screenshot dan hasil tersimpan di `output/` (diabaikan Git).
 
-Build TypeScript/produksi (`npm run build`) dan smoke test penuh (`npm run test:smoke`) terverifikasi secara lokal setelah penambahan acara malam, termasuk perbaikan panel pada layar pendek dan navigasi reduced motion. Performa pada perangkat fisik, angka FPS/budget PRD pada berbagai hardware, serta subdomain produksi belum diverifikasi.
+Build TypeScript/produksi (`npm run build`) dan smoke test penuh (`npm test` atau `npm run test:smoke`) terverifikasi secara lokal setelah penambahan acara malam, termasuk perbaikan panel pada layar pendek dan navigasi reduced motion. Performa pada perangkat fisik, angka FPS/budget PRD pada berbagai hardware, serta subdomain produksi belum diverifikasi.
+
+## CI/CD Pipeline
+
+Proyek ini telah dilengkapi pipeline otomatis **GitHub Actions** (`.github/workflows/ci-cd.yml`):
+- **Automated Typecheck & Build**: Validasi tipe TypeScript dan build bundler Vite.
+- **Automated E2E Smoke Test**: Menjalankan Playwright headless Chromium secara otomatis untuk menguji WebGL scene, endpoint API, navigasi ruangan, katalog, audio, dan responsive mobile.
+- **Automated Deployment**: Deployment otomatis ke **Vercel** (Preview pada PR dan Production pada push ke branch `main`).
+- Rincian panduan konfigurasi secret dan alur kerja dapat dilihat di [docs/CI-CD.md](docs/CI-CD.md).
 
 `node scripts/check-environment.mjs` memeriksa slider pagi/malam, tombol pandangan Monas/langit, rangkaian drag kamera, perpindahan ke lobby, error WebGL/shader, dan overflow mobile. Screenshot lingkungan, Monas, matahari, serta bulan/bintang tersimpan dalam `output/`; keberadaan dan komposisi visual ditinjau secara manual, bukan dinilai otomatis oleh skrip.
 

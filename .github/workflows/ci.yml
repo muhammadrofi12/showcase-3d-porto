@@ -1,0 +1,52 @@
+name: CI (Build & Test)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Typecheck, Build & E2E Smoke Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript Typecheck & Build
+        run: npm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E Smoke Tests
+        env:
+          CI: "true"
+        run: npm test
+
+      - name: Upload Test Screenshots & Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-artifacts
+          path: output/
+          retention-days: 14

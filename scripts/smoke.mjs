@@ -1,12 +1,86 @@
 import { chromium } from "@playwright/test";
 import fs from "node:fs";
+import { spawn } from "node:child_process";
 
 fs.mkdirSync("output", { recursive: true });
-const browser = await chromium.launch({
-  channel: "chrome",
-  headless: true,
-  args: ["--enable-webgl", "--ignore-gpu-blocklist"],
+
+async function isServerRunning(url) {
+  try {
+    const res = await fetch(url, { method: "HEAD" });
+    return res.ok || res.status < 500;
+  } catch {
+    return false;
+  }
+}
+
+let serverProcess = null;
+if (!(await isServerRunning("http://127.0.0.1:5173/"))) {
+  console.log("Vite dev server belum berjalan, menjalankan otomatis...");
+  const isWin = process.platform === "win32";
+  const cmd = isWin ? "npx.cmd" : "npx";
+  serverProcess = spawn(
+    cmd,
+    ["vite", "--host", "127.0.0.1", "--port", "5173"],
+    {
+      stdio: "pipe",
+      shell: isWin,
+    },
+  );
+
+  for (let i = 0; i < 40; i++) {
+    await new Promise((r) => setTimeout(r, 500));
+    if (await isServerRunning("http://127.0.0.1:5173/")) {
+      console.log("Vite dev server siap di http://127.0.0.1:5173/");
+      break;
+    }
+  }
+}
+
+function cleanupServer() {
+  if (serverProcess && serverProcess.pid) {
+    try {
+      if (process.platform === "win32") {
+        spawn("taskkill", ["/pid", String(serverProcess.pid), "/f", "/t"]);
+      } else {
+        serverProcess.kill("SIGTERM");
+      }
+    } catch {
+      // ignore kill errors
+    }
+    serverProcess = null;
+  }
+}
+
+process.on("exit", cleanupServer);
+process.on("SIGINT", () => {
+  cleanupServer();
+  process.exit(1);
 });
+process.on("SIGTERM", () => {
+  cleanupServer();
+  process.exit(1);
+});
+
+const launchArgs = [
+  "--enable-webgl",
+  "--ignore-gpu-blocklist",
+  "--use-gl=angle",
+  "--use-angle=swiftshader",
+  "--no-sandbox",
+  "--disable-setuid-sandbox",
+];
+
+const launchOptions = {
+  headless: true,
+  args: launchArgs,
+};
+
+// Gunakan channel Chrome pada OS Windows jika ada, atau standard Chromium di CI Linux
+if (!process.env.CI && process.platform === "win32") {
+  launchOptions.channel = process.env.PLAYWRIGHT_CHANNEL || "chrome";
+}
+
+const browser = await chromium.launch(launchOptions);
 
 const errors = [];
 let apiStatus = 0;
@@ -357,7 +431,11 @@ fs.writeFileSync(
   ),
 );
 
-if (errors.length) throw Error(errors.join("\n"));
+if (errors.length) {
+  cleanupServer();
+  throw Error(errors.join("\n"));
+}
 console.log(
   "PASS: desktop city, lobby (00), visitor gaze directions, sound engine, eye-blink transition, rooms 01-03, AI Product Visuals (04), Guestbook closing room (05), mobile and reduced motion.",
 );
+cleanupServer();

@@ -1,0 +1,152 @@
+name: CD (Deploy to Vercel)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: cd-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  deployments: write
+
+jobs:
+  # ==========================================
+  # 1. DEPLOY PREVIEW (On Pull Requests)
+  # ==========================================
+  deploy-preview:
+    name: Deploy to Vercel (Preview)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Vercel Credentials
+        id: check-creds
+        run: |
+          if [ -n "$VERCEL_TOKEN" ] && [ -n "$VERCEL_ORG_ID" ] && [ -n "$VERCEL_PROJECT_ID" ]; then
+            echo "has_creds=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_creds=false" >> $GITHUB_OUTPUT
+            echo "::notice ::VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID belum diset di GitHub Secrets. Preview deployment Vercel CLI dilewati (jika terhubung via Vercel GitHub App, Vercel akan otomatis membuat preview)."
+          fi
+
+      - name: Setup Node.js
+        if: steps.check-creds.outputs.has_creds == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: npm ci
+
+      - name: Install Vercel CLI
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment (Preview)
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel Preview
+        if: steps.check-creds.outputs.has_creds == 'true'
+        id: deploy
+        run: |
+          PREVIEW_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          echo "preview_url=$PREVIEW_URL" >> $GITHUB_OUTPUT
+          echo "Preview URL: $PREVIEW_URL"
+
+      - name: Comment Preview URL on PR
+        if: steps.check-creds.outputs.has_creds == 'true' && steps.deploy.outputs.preview_url != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const previewUrl = process.env.PREVIEW_URL;
+            const body = `### 🚀 3D Showcase Preview Deployed!\n\n**Preview URL:** ${previewUrl}\n\n*Deployed automatically via GitHub Actions.*`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.preview_url }}
+
+  # ==========================================
+  # 2. DEPLOY PRODUCTION (On Push to Main)
+  # ==========================================
+  deploy-production:
+    name: Deploy to Vercel (Production)
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Vercel Credentials
+        id: check-creds
+        run: |
+          if [ -n "$VERCEL_TOKEN" ] && [ -n "$VERCEL_ORG_ID" ] && [ -n "$VERCEL_PROJECT_ID" ]; then
+            echo "has_creds=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_creds=false" >> $GITHUB_OUTPUT
+            echo "::notice ::VERCEL_TOKEN / VERCEL_ORG_ID / VERCEL_PROJECT_ID belum diset di GitHub Secrets. Deployment Vercel CLI dilewati (Vercel GitHub App akan otomatis men-deploy setelah tes CI lolos)."
+          fi
+
+      - name: Setup Node.js
+        if: steps.check-creds.outputs.has_creds == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: npm ci
+
+      - name: Install Vercel CLI
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment (Production)
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel Production
+        if: steps.check-creds.outputs.has_creds == 'true'
+        run: |
+          PROD_URL=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
+          echo "Production URL: $PROD_URL"
+          echo "### 🚀 Production Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "**Live URL:** $PROD_URL" >> $GITHUB_STEP_SUMMARY
