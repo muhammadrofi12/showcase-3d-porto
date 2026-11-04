@@ -20,18 +20,19 @@
       "Tailwind CSS",
       "Astro"
     ],
-    "cover": "/artworks/ocs-edu/ocsEduMockup.webp",
+    "cover": "/assets/portofolio/ocs-edu/ocs-edu-mockup.webp",
     "images": [
-      "/artworks/ocs-edu/ocsEduMockup.webp",
-      "/artworks/ocs-edu/ocsEduTeacher.webp",
-      "/artworks/ocs-edu/ocsEduAdmin.webp",
-      "/artworks/ocs-edu/ocsEduAttendance.webp",
-      "/artworks/ocs-edu/ocsEduLanding.webp"
+      "/assets/portofolio/ocs-edu/ocs-edu-mockup.webp",
+      "/assets/portofolio/ocs-edu/guru-dashboard.png",
+      "/assets/portofolio/ocs-edu/admin-dashboard.png",
+      "/assets/portofolio/ocs-edu/kehadiran-dashboard.png",
+      "/assets/portofolio/ocs-edu/landing-page.webp"
     ],
     "links": [
       {
         "label": "Lihat website produk",
-        "url": "https://edu.ourcreativesolution.my.id/"
+        "url": "https://edu.ourcreativesolution.my.id/",
+        "href": "https://edu.ourcreativesolution.my.id/"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/ocs-edu"
@@ -57,23 +58,24 @@
       "Material Tailwind",
       "Cypress"
     ],
-    "cover": "/artworks/rekyndness/rekyndnessMain.webp",
+    "cover": "/assets/portofolio/rekyndness/ocs.webp",
     "images": [
-      "/artworks/rekyndness/rekyndnessMain.webp",
-      "/artworks/rekyndness/rekyndness1.webp",
-      "/artworks/rekyndness/rekyndness2.webp",
-      "/artworks/rekyndness/rekyndness3.webp",
-      "/artworks/rekyndness/rekyndness4.webp",
-      "/artworks/rekyndness/rekyndness5.webp",
-      "/artworks/rekyndness/rekyndness6.webp",
-      "/artworks/rekyndness/rekyndness7.webp",
-      "/artworks/rekyndness/rekyndness8.webp",
-      "/artworks/rekyndness/rekyndness9.webp"
+      "/assets/portofolio/rekyndness/ocs.webp",
+      "/assets/portofolio/rekyndness/ocs-1.webp",
+      "/assets/portofolio/rekyndness/ocs-2.webp",
+      "/assets/portofolio/rekyndness/ocs-3.webp",
+      "/assets/portofolio/rekyndness/ocs-4.webp",
+      "/assets/portofolio/rekyndness/ocs-5.webp",
+      "/assets/portofolio/rekyndness/ocs-6.webp",
+      "/assets/portofolio/rekyndness/ocs-7.webp",
+      "/assets/portofolio/rekyndness/ocs-8.webp",
+      "/assets/portofolio/rekyndness/ocs-9.webp"
     ],
     "links": [
       {
         "label": "See live",
-        "url": "https://gate.v2.rekyndness.id/signin"
+        "url": "https://gate.v2.rekyndness.id/signin",
+        "href": "https://gate.v2.rekyndness.id/signin"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/rekyndness-multi-partner-operational-donation-dashboard"
@@ -102,23 +104,24 @@
       "Groq Llama 3.3 70B",
       "Web Speech API (TTS & STT)"
     ],
-    "cover": "/artworks/talkbuddy-ai/talkbuddyMain.webp",
+    "cover": "/assets/portofolio/talkbudyAI/talkbudyAI.webp",
     "images": [
-      "/artworks/talkbuddy-ai/talkbuddyMain.webp",
-      "/artworks/talkbuddy-ai/talkbuddy1.webp",
-      "/artworks/talkbuddy-ai/talkbuddy2.webp",
-      "/artworks/talkbuddy-ai/talkbuddy3.webp",
-      "/artworks/talkbuddy-ai/talkbuddy4.webp",
-      "/artworks/talkbuddy-ai/talkbuddy5.webp",
-      "/artworks/talkbuddy-ai/talkbuddy6.webp",
-      "/artworks/talkbuddy-ai/talkbuddy7.webp",
-      "/artworks/talkbuddy-ai/talkbuddy8.webp",
-      "/artworks/talkbuddy-ai/talkbuddy9.webp"
+      "/assets/portofolio/talkbudyAI/talkbudyAI.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-1.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-2.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-3.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-4.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-5.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-6.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-7.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-8.webp",
+      "/assets/portofolio/talkbudyAI/talkbudyAI-9.webp"
     ],
     "links": [
       {
         "label": "See live",
-        "url": "https://talk-buddy-ai-one.vercel.app/"
+        "url": "https://talk-buddy-ai-one.vercel.app/",
+        "href": "https://talk-buddy-ai-one.vercel.app/"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/talkbuddy-ai"
@@ -147,12 +150,12 @@
       "OpenCV",
       "go2rtc"
     ],
-    "cover": "/artworks/veyra-vision/veyraMockup.webp",
+    "cover": "/assets/portofolio/veyra-vision/mockup.webp",
     "images": [
-      "/artworks/veyra-vision/veyraMockup.webp",
-      "/artworks/veyra-vision/veyraDashboard.webp",
-      "/artworks/veyra-vision/veyraVehicles.webp",
-      "/artworks/veyra-vision/veyraCameras.webp"
+      "/assets/portofolio/veyra-vision/mockup.webp",
+      "/assets/portofolio/veyra-vision/dashboard.webp",
+      "/assets/portofolio/veyra-vision/vehicles.webp",
+      "/assets/portofolio/veyra-vision/cameras.webp"
     ],
     "links": [],
     "caseStudy": "https://rofiull.vercel.app/portfolio/veyra-vision"
@@ -177,20 +180,21 @@
       "JavaScript",
       "Vitest"
     ],
-    "cover": "/artworks/our-creative-solution/ocsMain.webp",
+    "cover": "/assets/portofolio/ocs/ocs.webp",
     "images": [
-      "/artworks/our-creative-solution/ocsMain.webp",
-      "/artworks/our-creative-solution/ocs1.webp",
-      "/artworks/our-creative-solution/ocs2.webp",
-      "/artworks/our-creative-solution/ocs3.webp",
-      "/artworks/our-creative-solution/ocs4.webp",
-      "/artworks/our-creative-solution/ocs5.webp",
-      "/artworks/our-creative-solution/ocs6.webp"
+      "/assets/portofolio/ocs/ocs.webp",
+      "/assets/portofolio/ocs/ocs-1.webp",
+      "/assets/portofolio/ocs/ocs-2.webp",
+      "/assets/portofolio/ocs/ocs-3.webp",
+      "/assets/portofolio/ocs/ocs-4.webp",
+      "/assets/portofolio/ocs/ocs-5.webp",
+      "/assets/portofolio/ocs/ocs-6.webp"
     ],
     "links": [
       {
         "label": "See live",
-        "url": "https://our-creative-solution-v2.vercel.app/"
+        "url": "https://our-creative-solution-v2.vercel.app/",
+        "href": "https://our-creative-solution-v2.vercel.app/"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/our-creative-solution-ocs"
@@ -212,20 +216,22 @@
       "JavaScript",
       "GSAP"
     ],
-    "cover": "/artworks/fawra-cloth---deep-sea-drop/fawraCloth.webp",
+    "cover": "/assets/portofolio/fawra-cloth/clotch-fawra.webp",
     "images": [
-      "/artworks/fawra-cloth---deep-sea-drop/fawraCloth.webp",
-      "/artworks/fawra-cloth---deep-sea-drop/fawra1.webp",
-      "/artworks/fawra-cloth---deep-sea-drop/fawra2.webp"
+      "/assets/portofolio/fawra-cloth/clotch-fawra.webp",
+      "/assets/portofolio/fawra-cloth/clotch-fawra-1.webp",
+      "/assets/portofolio/fawra-cloth/clotch-fawra-2.webp"
     ],
     "links": [
       {
         "label": "See live",
-        "url": "https://fawra-cloth.netlify.app/"
+        "url": "https://fawra-cloth.netlify.app/",
+        "href": "https://fawra-cloth.netlify.app/"
       },
       {
         "label": "Instagram",
-        "url": "https://www.instagram.com/rofi.exe/"
+        "url": "https://www.instagram.com/rofi.exe/",
+        "href": "https://www.instagram.com/rofi.exe/"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/fawra-cloth---deep-sea-drop"
@@ -250,27 +256,31 @@
       "REST API",
       "Figma"
     ],
-    "cover": "/artworks/agrofy/agrofyApp.webp",
+    "cover": "/assets/portofolio/agrofy/agrofy.webp",
     "images": [
-      "/artworks/agrofy/agrofyApp.webp",
-      "/artworks/agrofy/agrofy1.webp"
+      "/assets/portofolio/agrofy/agrofy.webp",
+      "/assets/portofolio/agrofy/agrofy-1.webp"
     ],
     "links": [
       {
         "label": "Github",
-        "url": "https://github.com/muhammadrofi12/Agrofy_App"
+        "url": "https://github.com/muhammadrofi12/Agrofy_App",
+        "href": "https://github.com/muhammadrofi12/Agrofy_App"
       },
       {
         "label": "See live Web",
-        "url": "https://agrofy.netlify.app/"
+        "url": "https://agrofy.netlify.app/",
+        "href": "https://agrofy.netlify.app/"
       },
       {
         "label": "Demo FE",
-        "url": "https://appetize.io/app/b_3jmp5pdnjtwmepjurglatjs64y"
+        "url": "https://appetize.io/app/b_3jmp5pdnjtwmepjurglatjs64y",
+        "href": "https://appetize.io/app/b_3jmp5pdnjtwmepjurglatjs64y"
       },
       {
         "label": "Poster",
-        "url": "https://drive.google.com/file/d/1O5UYmk6IZI9_8TKdukFytVzf2CaqugR6/view?usp=sharing"
+        "url": "https://drive.google.com/file/d/1O5UYmk6IZI9_8TKdukFytVzf2CaqugR6/view?usp=sharing",
+        "href": "https://drive.google.com/file/d/1O5UYmk6IZI9_8TKdukFytVzf2CaqugR6/view?usp=sharing"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/agrofy"
@@ -291,19 +301,20 @@
       "JavaScript",
       "SEO"
     ],
-    "cover": "/artworks/web-wimala/webWimala.webp",
+    "cover": "/assets/portofolio/wimala/wimala.webp",
     "images": [
-      "/artworks/web-wimala/webWimala.webp",
-      "/artworks/web-wimala/wimala1.webp",
-      "/artworks/web-wimala/wimala2.webp",
-      "/artworks/web-wimala/wimala4.webp",
-      "/artworks/web-wimala/wimala5.webp",
-      "/artworks/web-wimala/wimala6.webp"
+      "/assets/portofolio/wimala/wimala.webp",
+      "/assets/portofolio/wimala/wimala-1.webp",
+      "/assets/portofolio/wimala/wimala-2.webp",
+      "/assets/portofolio/wimala/wimala-4.webp",
+      "/assets/portofolio/wimala/wimala-5.webp",
+      "/assets/portofolio/wimala/wimala-6.webp"
     ],
     "links": [
       {
         "label": "See live",
-        "url": "https://wimala.co.id/"
+        "url": "https://wimala.co.id/",
+        "href": "https://wimala.co.id/"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/web-wimala"
@@ -322,14 +333,15 @@
     "tech": [
       "Figma"
     ],
-    "cover": "/artworks/warung-bude-app/warungBudeApp.webp",
+    "cover": "/assets/portofolio/warungBude-app.webp",
     "images": [
-      "/artworks/warung-bude-app/warungBudeApp.webp"
+      "/assets/portofolio/warungBude-app.webp"
     ],
     "links": [
       {
         "label": "Prototype 1",
-        "url": "https://www.figma.com/proto/xyVmdnOov2OBloWQapHqWh/Warung-Bude?page-id=403%3A159&node-id=403-160&viewport=609%2C390%2C0.1&scaling=contain&starting-point-node-id=403%3A160"
+        "url": "https://www.figma.com/proto/xyVmdnOov2OBloWQapHqWh/Warung-Bude?page-id=403%3A159&node-id=403-160&viewport=609%2C390%2C0.1&scaling=contain&starting-point-node-id=403%3A160",
+        "href": "https://www.figma.com/proto/xyVmdnOov2OBloWQapHqWh/Warung-Bude?page-id=403%3A159&node-id=403-160&viewport=609%2C390%2C0.1&scaling=contain&starting-point-node-id=403%3A160"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/warung-bude-app"
@@ -348,18 +360,20 @@
     "tech": [
       "Figma"
     ],
-    "cover": "/artworks/devmaps/devMaps.webp",
+    "cover": "/assets/portofolio/devmap.webp",
     "images": [
-      "/artworks/devmaps/devMaps.webp"
+      "/assets/portofolio/devmap.webp"
     ],
     "links": [
       {
         "label": "Prototype 1",
-        "url": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?node-id=181-313&viewport=-20%2C455%2C0.03&t=Dhxorg4s6Ee9Eii5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=181%3A313&show-proto-sidebar=1&page-id=111%3A18"
+        "url": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?node-id=181-313&viewport=-20%2C455%2C0.03&t=Dhxorg4s6Ee9Eii5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=181%3A313&show-proto-sidebar=1&page-id=111%3A18",
+        "href": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?node-id=181-313&viewport=-20%2C455%2C0.03&t=Dhxorg4s6Ee9Eii5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=181%3A313&show-proto-sidebar=1&page-id=111%3A18"
       },
       {
         "label": "Prototype 2",
-        "url": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?page-id=111%3A18&type=design&node-id=623-5830&viewport=-799%2C397%2C0.08&scaling=scale-down&starting-point-node-id=623%3A4683&show-proto-sidebar=1"
+        "url": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?page-id=111%3A18&type=design&node-id=623-5830&viewport=-799%2C397%2C0.08&scaling=scale-down&starting-point-node-id=623%3A4683&show-proto-sidebar=1",
+        "href": "https://www.figma.com/proto/z8RGruxa1M9qooTSGfARWl/DevMaps?page-id=111%3A18&type=design&node-id=623-5830&viewport=-799%2C397%2C0.08&scaling=scale-down&starting-point-node-id=623%3A4683&show-proto-sidebar=1"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/devmaps"
@@ -379,14 +393,15 @@
       "Figma",
       "Miro"
     ],
-    "cover": "/artworks/wipala-app/wipalaApp.webp",
+    "cover": "/assets/portofolio/wipala-app.webp",
     "images": [
-      "/artworks/wipala-app/wipalaApp.webp"
+      "/assets/portofolio/wipala-app.webp"
     ],
     "links": [
       {
         "label": "Prototype 1",
-        "url": "https://www.figma.com/proto/S37WHaGgb89Hyhyr3obbAg/WIPALA-by-GG?page-id=1%3A5&node-id=289-2699&viewport=429%2C313%2C0.11&t=4kSTIXGpXA07Xy62-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=125%3A1229"
+        "url": "https://www.figma.com/proto/S37WHaGgb89Hyhyr3obbAg/WIPALA-by-GG?page-id=1%3A5&node-id=289-2699&viewport=429%2C313%2C0.11&t=4kSTIXGpXA07Xy62-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=125%3A1229",
+        "href": "https://www.figma.com/proto/S37WHaGgb89Hyhyr3obbAg/WIPALA-by-GG?page-id=1%3A5&node-id=289-2699&viewport=429%2C313%2C0.11&t=4kSTIXGpXA07Xy62-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=125%3A1229"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/wipala-app"
@@ -409,14 +424,15 @@
       "Flask",
       "Firebase"
     ],
-    "cover": "/artworks/greensort-platform/greenSort.webp",
+    "cover": "/assets/portofolio/banner-greensort.webp",
     "images": [
-      "/artworks/greensort-platform/greenSort.webp"
+      "/assets/portofolio/banner-greensort.webp"
     ],
     "links": [
       {
         "label": "Github",
-        "url": "https://github.com/muhammadrofi12/GreenSort-Platform"
+        "url": "https://github.com/muhammadrofi12/GreenSort-Platform",
+        "href": "https://github.com/muhammadrofi12/GreenSort-Platform"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/greensort-platform"
@@ -445,12 +461,12 @@
       "Docker",
       "Pest PHP"
     ],
-    "cover": "/artworks/bangunkarya-pro/bangunkaryaMain.webp",
+    "cover": "/assets/portofolio/landing-bangunkarya/bangunkarya.webp",
     "images": [
-      "/artworks/bangunkarya-pro/bangunkaryaMain.webp",
-      "/artworks/bangunkarya-pro/bangunkarya1.webp",
-      "/artworks/bangunkarya-pro/bangunkarya2.webp",
-      "/artworks/bangunkarya-pro/bangunkarya3.webp"
+      "/assets/portofolio/landing-bangunkarya/bangunkarya.webp",
+      "/assets/portofolio/landing-bangunkarya/bangunkarya-1.webp",
+      "/assets/portofolio/landing-bangunkarya/bangunkarya-2.webp",
+      "/assets/portofolio/landing-bangunkarya/bangunkarya-3.webp"
     ],
     "links": [],
     "caseStudy": "https://rofiull.vercel.app/portfolio/bangunkarya-pro-web-platform-kontraktor-interior-specialist"
@@ -474,16 +490,17 @@
       "JavaScript",
       "Lucide React"
     ],
-    "cover": "/artworks/blade-crown/barbershopMain.webp",
+    "cover": "/assets/portofolio/landing-barbershop/barbershop.webp",
     "images": [
-      "/artworks/blade-crown/barbershopMain.webp",
-      "/artworks/blade-crown/barbershop1.webp",
-      "/artworks/blade-crown/barbershop2.webp"
+      "/assets/portofolio/landing-barbershop/barbershop.webp",
+      "/assets/portofolio/landing-barbershop/barbershop-1.webp",
+      "/assets/portofolio/landing-barbershop/barbershop-2.webp"
     ],
     "links": [
       {
         "label": "See live web",
-        "url": "https://template-umkm-babershop.vercel.app/"
+        "url": "https://template-umkm-babershop.vercel.app/",
+        "href": "https://template-umkm-babershop.vercel.app/"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/blade-crown-landing-page-umkm-barbershop"
@@ -511,21 +528,22 @@
       "Docker",
       "Cloudflare Tunnel"
     ],
-    "cover": "/artworks/voltx/csKiosk.webp",
+    "cover": "/assets/portofolio/charging-station/halaman-status-pengisian-kios.webp",
     "images": [
-      "/artworks/voltx/csKiosk.webp",
-      "/artworks/voltx/csLogin.webp",
-      "/artworks/voltx/csDriverHome.webp",
-      "/artworks/voltx/csVerify.webp",
-      "/artworks/voltx/csChargingSelect.webp",
-      "/artworks/voltx/csPayment.webp",
-      "/artworks/voltx/csProgress.webp",
-      "/artworks/voltx/csReceipt.webp"
+      "/assets/portofolio/charging-station/halaman-status-pengisian-kios.webp",
+      "/assets/portofolio/charging-station/halaman-login.webp",
+      "/assets/portofolio/charging-station/halaman-utama-driver.webp",
+      "/assets/portofolio/charging-station/verifikasi.webp",
+      "/assets/portofolio/charging-station/halaman-pengisisan.webp",
+      "/assets/portofolio/charging-station/halaman-pembayaran.webp",
+      "/assets/portofolio/charging-station/halaman-progres-pengisian.webp",
+      "/assets/portofolio/charging-station/halaman-struk-driver.webp"
     ],
     "links": [
       {
         "label": "Source Code",
-        "url": "https://github.com/muhammadrofi12/charging-station-simulation"
+        "url": "https://github.com/muhammadrofi12/charging-station-simulation",
+        "href": "https://github.com/muhammadrofi12/charging-station-simulation"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/voltx-ev-charging-station-simulator-spklu"
@@ -549,27 +567,31 @@
       "Kotlin",
       "Jetpack Compose"
     ],
-    "cover": "/artworks/movie-app/movieApp.webp",
+    "cover": "/assets/portofolio/movie/movie-app.webp",
     "images": [
-      "/artworks/movie-app/movieApp.webp",
-      "/artworks/movie-app/movieMobile.webp"
+      "/assets/portofolio/movie/movie-app.webp",
+      "/assets/portofolio/movie/movie-mobile.webp"
     ],
     "links": [
       {
         "label": "See live web",
-        "url": "https://movie-app-v1-rofz.vercel.app/"
+        "url": "https://movie-app-v1-rofz.vercel.app/",
+        "href": "https://movie-app-v1-rofz.vercel.app/"
       },
       {
         "label": "Github web",
-        "url": "https://github.com/muhammadrofi12/movie-app"
+        "url": "https://github.com/muhammadrofi12/movie-app",
+        "href": "https://github.com/muhammadrofi12/movie-app"
       },
       {
         "label": "Github mobile",
-        "url": "https://github.com/muhammadrofi12/FE_Taks_IL"
+        "url": "https://github.com/muhammadrofi12/FE_Taks_IL",
+        "href": "https://github.com/muhammadrofi12/FE_Taks_IL"
       },
       {
         "label": "Posting LinkedIn",
-        "url": "https://www.linkedin.com/posts/muhammad-rofi-ul-arham_frontend-jetpackcompose-androiddevelopment-activity-7260901502913830912-9S5u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD41MHgBRLgKOg5ZQJgvrhGxocwzlx66w3g"
+        "url": "https://www.linkedin.com/posts/muhammad-rofi-ul-arham_frontend-jetpackcompose-androiddevelopment-activity-7260901502913830912-9S5u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD41MHgBRLgKOg5ZQJgvrhGxocwzlx66w3g",
+        "href": "https://www.linkedin.com/posts/muhammad-rofi-ul-arham_frontend-jetpackcompose-androiddevelopment-activity-7260901502913830912-9S5u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD41MHgBRLgKOg5ZQJgvrhGxocwzlx66w3g"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/movie-app"
@@ -593,14 +615,15 @@
       "ESP32",
       "C++"
     ],
-    "cover": "/artworks/iot-attendance-system/absensiRfidFinger.webp",
+    "cover": "/assets/portofolio/absensi-rfid-finger.webp",
     "images": [
-      "/artworks/iot-attendance-system/absensiRfidFinger.webp"
+      "/assets/portofolio/absensi-rfid-finger.webp"
     ],
     "links": [
       {
         "label": "Github",
-        "url": "https://github.com/muhammadrofi12/Absensi-RFID-Finger"
+        "url": "https://github.com/muhammadrofi12/Absensi-RFID-Finger",
+        "href": "https://github.com/muhammadrofi12/Absensi-RFID-Finger"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/iot-attendance-system"
@@ -621,18 +644,20 @@
       "JavaScript",
       "Bootstrap 5"
     ],
-    "cover": "/artworks/landing-page-sport-store/rofzSport.webp",
+    "cover": "/assets/portofolio/rofz-sport.webp",
     "images": [
-      "/artworks/landing-page-sport-store/rofzSport.webp"
+      "/assets/portofolio/rofz-sport.webp"
     ],
     "links": [
       {
         "label": "See live",
-        "url": "https://rofz-sport-store-v1.vercel.app/"
+        "url": "https://rofz-sport-store-v1.vercel.app/",
+        "href": "https://rofz-sport-store-v1.vercel.app/"
       },
       {
         "label": "Github",
-        "url": "https://github.com/muhammadrofi12/Project-Penweb-1"
+        "url": "https://github.com/muhammadrofi12/Project-Penweb-1",
+        "href": "https://github.com/muhammadrofi12/Project-Penweb-1"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/landing-page-sport-store"
@@ -654,14 +679,15 @@
       "JavaScript",
       "API Integration"
     ],
-    "cover": "/artworks/web-covid/webCovid.webp",
+    "cover": "/assets/portofolio/webCovid.webp",
     "images": [
-      "/artworks/web-covid/webCovid.webp"
+      "/assets/portofolio/webCovid.webp"
     ],
     "links": [
       {
         "label": "See live",
-        "url": "https://covid-v2-rofz.vercel.app/"
+        "url": "https://covid-v2-rofz.vercel.app/",
+        "href": "https://covid-v2-rofz.vercel.app/"
       }
     ],
     "caseStudy": "https://rofiull.vercel.app/portfolio/web-covid"

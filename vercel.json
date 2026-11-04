@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/portfolio",
+      "destination": "https://rofiull.vercel.app/api/portfolio"
+    },
+    {
+      "source": "/assets/portofolio/:path*",
+      "destination": "https://rofiull.vercel.app/assets/portofolio/:path*"
+    }
+  ]
+}

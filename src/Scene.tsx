@@ -7,8 +7,18 @@ import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Html, Text as DreiText, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { lobbyViewpoints, placements, stations } from "./content";
-import type { AiVisual, LobbyViewpointId, Project } from "./content";
+import {
+  aiVisuals as defaultAiVisuals,
+  lobbyViewpoints,
+  placements as defaultPlacements,
+  stations,
+} from "./content";
+import type {
+  AiVisual,
+  LobbyViewpointId,
+  Placement,
+  Project,
+} from "./content";
 import { Lobby } from "./components/Lobby";
 import { AiVisualRoom } from "./components/AiVisualRoom";
 import { GuestbookRoom } from "./components/GuestbookRoom";
@@ -244,16 +254,18 @@ function Building() {
 
 function Artwork({
   index,
+  placement,
   onSelect,
   active,
   canInteract,
 }: {
   index: number;
+  placement: Placement;
   onSelect: (p: Project, trigger?: HTMLElement | null) => void;
   active: boolean;
   canInteract: () => boolean;
 }) {
-  const { project, x, z } = placements[index];
+  const { project, x, z } = placement;
   const texture = useTexture(project.cover);
   texture.colorSpace = THREE.SRGBColorSpace;
   const aspect = texture.image.width / texture.image.height;
@@ -432,6 +444,8 @@ export default function Scene({
   snapCount = 0,
   greetingOpen,
   guestbookEntries,
+  placements = defaultPlacements,
+  aiVisuals = defaultAiVisuals,
   onGreetStaff,
   onInspectBoard,
   onOpenCatalog,
@@ -452,6 +466,8 @@ export default function Scene({
   snapCount?: number;
   greetingOpen: boolean;
   guestbookEntries: GuestbookEntry[];
+  placements?: Placement[];
+  aiVisuals?: AiVisual[];
   onGreetStaff: () => void;
   onInspectBoard: (trigger?: HTMLElement | null) => void;
   onOpenCatalog: (trigger?: HTMLElement | null) => void;
@@ -604,10 +620,11 @@ export default function Scene({
             phaseOffset={2.2}
           />
         </Suspense>
-        {placements.map((_, i) => (
-          <Suspense key={i} fallback={null}>
+        {placements.map((placement, i) => (
+          <Suspense key={placement.id} fallback={null}>
             <Artwork
               index={i}
+              placement={placement}
               onSelect={onSelect}
               active={currentStation.project === i}
               canInteract={canInteract}
@@ -619,6 +636,7 @@ export default function Scene({
             activeInRoom={currentStation.room === 5}
             reduced={reduced}
             low={low}
+            visuals={aiVisuals}
             onSelectVisual={onSelectVisual}
             canInteract={canInteract}
           />

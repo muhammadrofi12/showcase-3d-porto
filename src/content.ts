@@ -9,7 +9,7 @@ export const aiVisuals: AiVisual[] = aiVisualData;
 export const aiCatalogUrl =
   aiVisuals[0]?.catalogUrl || "https://lynk.id/rofiull";
 
-export const featured = [
+export const FEATURED_PREFIXES = [
   "OCS EDU",
   "Rekyndness",
   "BangunKarya",
@@ -18,7 +18,19 @@ export const featured = [
   "VOLTX",
   "Our Creative",
   "Blade",
-].map((name) => projects.find((p) => p.title.startsWith(name))!);
+] as const;
+
+export function buildFeatured(projectList: Project[] = projects): Project[] {
+  const picked = FEATURED_PREFIXES.map(
+    (name) =>
+      projectList.find((p) => p.title.startsWith(name)) ||
+      projects.find((p) => p.title.startsWith(name)),
+  ).filter((p): p is Project => Boolean(p));
+
+  return picked.length ? picked : projectList.slice(0, 8);
+}
+
+export const featured = buildFeatured(projects);
 
 export interface RoomDefinition {
   id:
@@ -136,13 +148,28 @@ export const rooms: RoomDefinition[] = [
 
 export const interiorRooms = rooms.filter((r) => Boolean(r.code));
 
-export const placements = featured.map((project, i) => ({
-  id: `placement-${i + 1}`,
-  project,
-  x: i % 2 === 0 ? -6.72 : 6.72,
-  z: [-10, -15, -20, -28, -33, -38, -46, -52][i],
-  room: i < 3 ? 2 : i < 6 ? 3 : 4,
-}));
+export interface Placement {
+  id: string;
+  project: Project;
+  x: number;
+  z: number;
+  room: number;
+}
+
+export function buildPlacements(
+  projectList: Project[] = projects,
+): Placement[] {
+  const featuredList = buildFeatured(projectList);
+  return featuredList.slice(0, 8).map((project, i) => ({
+    id: `placement-${i + 1}`,
+    project,
+    x: i % 2 === 0 ? -6.72 : 6.72,
+    z: [-10, -15, -20, -28, -33, -38, -46, -52][i],
+    room: i < 3 ? 2 : i < 6 ? 3 : 4,
+  }));
+}
+
+export const placements = buildPlacements(projects);
 
 export interface StationDefinition {
   id: string;

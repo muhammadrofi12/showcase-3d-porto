@@ -9,16 +9,34 @@ const browser = await chromium.launch({
 });
 
 const errors = [];
+let apiStatus = 0;
+let apiTotal = 0;
 const page = await browser.newPage({
   viewport: { width: 1440, height: 1000 },
   deviceScaleFactor: 1,
 });
 page.on("pageerror", (e) => errors.push(e.message));
+page.on("response", async (res) => {
+  if (res.url().includes("/api/portfolio")) {
+    apiStatus = res.status();
+    try {
+      const json = await res.json();
+      apiTotal = Number(json?.total || json?.projects?.length || 0);
+    } catch {
+      // ignore parse errors
+    }
+  }
+});
 
 const t0 = Date.now();
 await page.goto("http://127.0.0.1:5173/");
 await page.locator("canvas").waitFor();
 await page.waitForTimeout(5500);
+if (apiStatus !== 200 || apiTotal !== 19) {
+  throw Error(
+    `Expected /api/portfolio 200 OK with 19 projects, got status=${apiStatus} total=${apiTotal}`,
+  );
+}
 const initialLoadMs = Date.now() - t0;
 await page.screenshot({ path: "output/desktop-city.png" });
 

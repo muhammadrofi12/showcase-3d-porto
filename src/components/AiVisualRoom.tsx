@@ -117,12 +117,14 @@ export function AiVisualRoom({
   activeInRoom,
   reduced,
   low,
+  visuals = aiVisuals,
   onSelectVisual,
   canInteract,
 }: {
   activeInRoom: boolean;
   reduced: boolean;
   low: boolean;
+  visuals?: AiVisual[];
   onSelectVisual: (v: AiVisual, trigger?: HTMLElement | null) => void;
   canInteract: () => boolean;
 }) {
@@ -189,7 +191,7 @@ export function AiVisualRoom({
         ))}
 
         {/* All 8 unique AI visuals arranged 3-3-2 on the shelves */}
-        {aiVisuals.map((visual) => (
+        {visuals.map((visual) => (
           <ShelfVisualItem
             key={visual.id}
             visual={visual}

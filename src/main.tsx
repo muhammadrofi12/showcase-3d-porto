@@ -4,6 +4,7 @@ import React, {
   lazy,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -29,18 +30,20 @@ import {
 } from "lucide-react";
 import {
   aiCatalogUrl,
-  aiVisuals,
-  featured,
+  aiVisuals as initialAiVisuals,
+  buildFeatured,
+  buildPlacements,
   getRoomEntryStation,
   initialGuestbookEntries,
   interiorRooms,
-  projects,
+  projects as initialProjects,
   rooms,
   stations,
   shortTitle,
   status,
 } from "./content";
 import type { AiVisual, LobbyViewpointId, Project } from "./content";
+import { fetchPortfolioFromApi } from "./services/portfolioApi";
 import { galleryAudio } from "./audio";
 import "./style.css";
 
@@ -109,7 +112,24 @@ function App() {
     [guestName, setGuestName] = useState(""),
     [guestEmail, setGuestEmail] = useState(""),
     [guestMessage, setGuestMessage] = useState(""),
-    [guestSaved, setGuestSaved] = useState(false);
+    [guestSaved, setGuestSaved] = useState(false),
+    [projects, setProjects] = useState<Project[]>(initialProjects),
+    [aiVisuals, setAiVisuals] = useState<AiVisual[]>(initialAiVisuals);
+
+  const featured = useMemo(() => buildFeatured(projects), [projects]);
+  const placements = useMemo(() => buildPlacements(projects), [projects]);
+
+  useEffect(() => {
+    let activeMount = true;
+    fetchPortfolioFromApi("id").then((res) => {
+      if (!activeMount) return;
+      if (res.projects.length) setProjects(res.projects);
+      if (res.aiVisuals.length) setAiVisuals(res.aiVisuals);
+    });
+    return () => {
+      activeMount = false;
+    };
+  }, []);
 
   const [sceneEnabled, setSceneEnabled] = useState(
     window.innerWidth >= 768 && !reduced,
@@ -310,7 +330,7 @@ function App() {
       const idx = aiVisuals.findIndex((item) => item.id === v.id);
       setSelectedVisualIndex(idx >= 0 ? idx : 0);
     },
-    [rememberTrigger, ensureAudioOnEntry],
+    [rememberTrigger, ensureAudioOnEntry, aiVisuals],
   );
 
   const closeVisual = useCallback(() => {
@@ -478,6 +498,8 @@ function App() {
               snapCount={snapCount}
               greetingOpen={greetingOpen}
               guestbookEntries={guestbookEntries}
+              placements={placements}
+              aiVisuals={aiVisuals}
               onGreetStaff={handleGreetStaff}
               onInspectBoard={handleInspectBoard}
               onOpenCatalog={openBookCatalog}
