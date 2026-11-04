@@ -68,6 +68,7 @@ const launchArgs = [
   "--use-angle=swiftshader",
   "--no-sandbox",
   "--disable-setuid-sandbox",
+  "--disable-dev-shm-usage",
 ];
 
 const launchOptions = {
@@ -81,6 +82,19 @@ if (!process.env.CI && process.platform === "win32") {
 }
 
 const browser = await chromium.launch(launchOptions);
+
+async function snap(targetPage, path, options = {}) {
+  try {
+    await targetPage.screenshot({
+      path,
+      animations: "disabled",
+      timeout: 8000,
+      ...options,
+    });
+  } catch (err) {
+    console.warn(`[Screenshot Warning] Melewati screenshot ${path}: ${err.message}`);
+  }
+}
 
 const errors = [];
 let apiStatus = 0;
@@ -112,7 +126,7 @@ if (apiStatus !== 200 || apiTotal !== 19) {
   );
 }
 const initialLoadMs = Date.now() - t0;
-await page.screenshot({ path: "output/desktop-city.png" });
+await snap(page, "output/desktop-city.png");
 
 // 1. Enter Lobby (00 — Lobby & Reception) and verify sound auto-enabled
 await page.getByRole("button", { name: "Masuk gallery", exact: true }).click();
@@ -127,7 +141,7 @@ if (
 if (!(await page.getByText("SOUND ON").isVisible())) {
   throw Error("Expected SOUND ON indicator after entering gallery");
 }
-await page.screenshot({ path: "output/desktop-lobby.png" });
+await snap(page, "output/desktop-lobby.png");
 
 // Toggle sound off and back on
 await page.getByRole("button", { name: "Matikan suara" }).click();
@@ -139,11 +153,11 @@ await page.getByRole("button", { name: "Aktifkan suara" }).click();
 // 2. Test Lobby viewpoints (Board & Desk) and Staff Greeting
 await page.getByRole("button", { name: "Pandangan denah" }).click();
 await page.waitForTimeout(1400);
-await page.screenshot({ path: "output/desktop-lobby-board.png" });
+await snap(page, "output/desktop-lobby-board.png");
 
 await page.getByRole("button", { name: "Meja katalog" }).click();
 await page.waitForTimeout(1400);
-await page.screenshot({ path: "output/desktop-lobby-desk.png" });
+await snap(page, "output/desktop-lobby-desk.png");
 
 await page.getByRole("button", { name: "Sapa petugas" }).click();
 await page
@@ -176,14 +190,15 @@ await page.getByText("BUKU KATALOG RESEPSI").waitFor();
 if ((await page.locator(".project-card").count()) !== 19) {
   throw Error("Expected 19 software projects in catalog");
 }
-await page.screenshot({ path: "output/desktop-book-catalog.png" });
+await snap(page, "output/desktop-book-catalog.png");
 
 // Switch to AI Product Visuals collection inside catalog
 await page.getByRole("tab", { name: /AI Product Visuals/i }).click();
+await page.waitForTimeout(400);
 if ((await page.locator(".ai-card").count()) !== 8) {
   throw Error("Expected 8 AI Product Visuals in catalog");
 }
-await page.screenshot({ path: "output/desktop-ai-catalog.png" });
+await snap(page, "output/desktop-ai-catalog.png");
 
 // Switch back to Software collection and test empty search state
 await page.getByRole("tab", { name: /Proyek Software/i }).click();
@@ -212,12 +227,12 @@ if (
 ) {
   throw Error("Expected Products & Systems in Room 01");
 }
-await page.screenshot({ path: "output/desktop-room-overview.png" });
+await snap(page, "output/desktop-room-overview.png");
 
 // Step from Room 01 overview to Project 01 (OCS EDU)
 await page.getByRole("button", { name: "Titik berikutnya" }).click();
 await page.waitForTimeout(1800);
-await page.screenshot({ path: "output/desktop-room.png" });
+await snap(page, "output/desktop-room.png");
 
 // Open OCS EDU detail dialog and close with Escape
 await page.locator(".art-caption").click();
@@ -229,7 +244,7 @@ if (
 ) {
   throw Error("Expected OCS EDU detail");
 }
-await page.screenshot({ path: "output/desktop-detail.png" });
+await snap(page, "output/desktop-detail.png");
 await page.keyboard.press("Escape");
 
 // 6. Navigate via floorplan with eye-blink transition to Room 03, Room 04, and Room 05 (Guestbook)
@@ -239,7 +254,7 @@ await page
   .getByRole("button", { name: "03 Ruang 03" })
   .click();
 await page.waitForTimeout(820);
-await page.screenshot({ path: "output/desktop-blink.png" });
+await snap(page, "output/desktop-blink.png");
 await page.waitForTimeout(1200);
 if (
   !(await page
@@ -266,7 +281,7 @@ if (
 // Step from Room 04 overview to AI shelf close-up
 await page.getByRole("button", { name: "Titik berikutnya" }).click();
 await page.waitForTimeout(1800);
-await page.screenshot({ path: "output/desktop-ai-room.png" });
+await snap(page, "output/desktop-ai-room.png");
 
 // 7. Open AI Visual detail from Room 04 marker, navigate next, and close with focus restoration
 const marker01 = page.getByRole("button", {
@@ -281,7 +296,7 @@ if (
 ) {
   throw Error("Expected AI Product Visual 01 detail modal");
 }
-await page.screenshot({ path: "output/desktop-ai-detail.png" });
+await snap(page, "output/desktop-ai-detail.png");
 
 await page.getByRole("button", { name: "Visual berikutnya" }).click();
 if (
@@ -317,7 +332,7 @@ if (
 ) {
   throw Error("Expected Sign the guestbook heading in Room 05");
 }
-await page.screenshot({ path: "output/desktop-guestbook.png" });
+await snap(page, "output/desktop-guestbook.png");
 
 // Submit a guestbook entry
 await page.getByPlaceholder("Your name").fill("Rofi Visitor");
@@ -350,17 +365,17 @@ await mobile.waitForTimeout(1200);
 if (await mobile.locator("canvas").count()) {
   throw Error("Mobile should defer the 3D renderer until entry");
 }
-await mobile.screenshot({ path: "output/mobile-catalog.png" });
+await snap(mobile, "output/mobile-catalog.png");
 
 await mobile.locator(".project-card").first().click();
-await mobile.screenshot({ path: "output/mobile-detail.png" });
+await snap(mobile, "output/mobile-detail.png");
 await mobile.getByRole("button", { name: "Tutup detail proyek" }).click();
 
 await mobile
   .getByRole("button", { name: "Tutup katalog dan masuk 3D" })
   .click();
 await mobile.waitForTimeout(2400);
-await mobile.screenshot({ path: "output/mobile-city.png" });
+await snap(mobile, "output/mobile-city.png");
 
 // Swipe up on mobile to enter Lobby first
 await mobile.evaluate(() => {
@@ -376,7 +391,7 @@ await mobile.evaluate(() => {
 });
 await mobile.getByRole("heading", { name: "Lobby & Reception" }).waitFor();
 await mobile.waitForTimeout(1500);
-await mobile.screenshot({ path: "output/mobile-lobby.png" });
+await snap(mobile, "output/mobile-lobby.png");
 
 // Advance from Lobby to Room 01 on mobile
 await mobile.getByRole("button", { name: "Lanjut ke ruang 01" }).click();

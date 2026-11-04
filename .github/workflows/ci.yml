@@ -41,6 +41,7 @@ jobs:
       - name: Run E2E Smoke Tests
         env:
           CI: "true"
+          PW_TEST_SCREENSHOT_NO_FONTS_READY: "1"
         run: npm test
 
       - name: Upload Test Screenshots & Reports
